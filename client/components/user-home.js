@@ -1,23 +1,20 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import AllRecipes from './AllRecipes'
 
 /**
  * COMPONENT
  */
+export const UserHome = props => {
+  const {email} = props
 
-export class UserHome extends React.Component {
-  // componentDidMount() {
-  //   this.props.getRecipes()
-  // }
-
-  render() {
-    return (
-      <div>
-        <h3>Welcome, {this.props.email}</h3>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <h3>Welcome, {email}</h3>
+      <AllRecipes />
+    </div>
+  )
 }
 
 /**
@@ -28,11 +25,6 @@ const mapState = state => {
     email: state.user.email
   }
 }
-// const mapDispatch = dispatch => {
-//   return {
-//     getRecipes: () => dispatch(getRecipes())
-//   }
-// }
 
 export default connect(mapState)(UserHome)
 
