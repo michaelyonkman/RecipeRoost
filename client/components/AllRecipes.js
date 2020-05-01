@@ -2,6 +2,8 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {getRecipes} from '../store/userRecipes'
+import Card from 'react-bootstrap/Card'
+import CardDeck from 'react-bootstrap/CardDeck'
 
 export class AllRecipes extends React.Component {
   componentDidMount() {
@@ -13,20 +15,36 @@ export class AllRecipes extends React.Component {
 
     return (
       <div>
-        {recipes.length &&
-          recipes.map(recipe => {
-            return (
-              <div key={recipe.id}>
-                <Link to={`recipes/${recipe.id}`}>
-                  <h3>{recipe.name}</h3>
-                  <img src={recipe.imageURL} />
-                  <p>{recipe.ingredients}</p>
-                  <p>{recipe.instructions}</p>
-                  <p>{recipe.rating}</p>
-                </Link>
-              </div>
-            )
-          })}
+        <CardDeck
+          style={{
+            justifyContent: 'space-evenly'
+          }}
+        >
+          {recipes.length &&
+            recipes.map(recipe => {
+              return (
+                <div key={recipe.id}>
+                  <Card
+                    style={{
+                      width: '18rem',
+                      flex: 1,
+                      margin: 'auto',
+                      marginTop: '1rem',
+                      marginBottom: '1rem'
+                    }}
+                  >
+                    <Card.Img variant="top" src={recipe.imageURL} />
+                    <Link to={`recipes/${recipe.id}`}>
+                      <Card.Title>{recipe.name}</Card.Title>
+                    </Link>
+                    {/* <p>{recipe.ingredients}</p>
+                    <p>{recipe.instructions}</p>
+                    <p>{recipe.rating}</p> */}
+                  </Card>
+                </div>
+              )
+            })}
+        </CardDeck>
       </div>
     )
   }

@@ -11,7 +11,6 @@ function generateRecipes() {
     let name = faker.hacker.adjective()
     let ingredients = faker.lorem.words()
     let instructions = faker.lorem.words()
-    let imageURL = faker.image.imageUrl()
     let category = faker.lorem.word()
     let rating = faker.random.number(5)
     let userId = faker.random.number({min: 1, max: 2})
@@ -20,7 +19,6 @@ function generateRecipes() {
       name,
       ingredients,
       instructions,
-      imageURL,
       category,
       rating,
       userId
