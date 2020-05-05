@@ -1,9 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchRecipeDetails} from '../store/recipeDetails'
+import {Link} from 'react-router-dom'
+import {fetchRecipeDetails} from '../store/recipes'
 
 export class RecipeDetails extends React.Component {
   componentDidMount() {
+    console.log(this.props)
     this.props.fetchRecipeDetails(this.props.match.params.recipeId)
   }
 
@@ -17,6 +19,7 @@ export class RecipeDetails extends React.Component {
         <p>{recipe.ingredients}</p>
         <p>{recipe.instructions}</p>
         <p>{recipe.rating}</p>
+        <Link to={`/recipes/edit/${recipe.id}`}>Edit Recipe</Link>
       </div>
     )
   }

@@ -39,7 +39,7 @@ export const addRecipe = recipe => {
   }
 }
 
-const recipeDetailsReducer = (state = {}, action) => {
+const recipesReducer = (state = {}, action) => {
   switch (action.type) {
     case SET_RECIPE_DETAILS:
       return action.recipe
@@ -50,4 +50,4 @@ const recipeDetailsReducer = (state = {}, action) => {
   }
 }
 
-export default recipeDetailsReducer
+export default recipesReducer

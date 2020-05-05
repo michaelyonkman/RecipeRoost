@@ -1,8 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addRecipe} from '../store/recipes'
+import {fetchRecipeDetails} from '../store/recipes'
 
-class AddRecipe extends React.Component {
+class EditRecipe extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -15,6 +15,15 @@ class AddRecipe extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
+  async componentDidMount() {
+    await this.props.fetchRecipeDetails(this.props.match.params.recipeId)
+    this.state.recipeName = this.props.recipeDetails.name
+    this.state.ingredients = this.props.recipeDetails.ingredients
+    this.state.instructions = this.props.recipeDetails.instructions
+    this.state.category = this.props.recipeDetails.category
+    this.state.rating = this.props.recipeDetails.rating
+    console.log(this.state)
+  }
   render() {
     return (
       <form
@@ -23,19 +32,32 @@ class AddRecipe extends React.Component {
         onChange={this.handleChange}
       >
         <label htmlFor="recipeName">Recipe Name</label>
-        <input name="recipeName" type="text" />
+        <input
+          name="recipeName"
+          type="text"
+          defaultValue={this.props.recipeDetails.name}
+        />
         <label htmlFor="ingredients">Ingredients</label>
-        <textarea name="ingredients" />
+        <textarea
+          name="ingredients"
+          defaultValue={this.props.recipeDetails.ingredients}
+        />
         <label htmlFor="instructions">Instructions</label>
-        <textarea name="instructions" />
+        <textarea
+          name="instructions"
+          defaultValue={this.props.recipeDetails.instructions}
+        />
         <label htmlFor="category">Category</label>
-        <select name="category">
+        <select
+          name="category"
+          defaultValue={this.props.recipeDetails.category}
+        >
           <option value="mainCourse">Main Course</option>
           <option value="starter">Starter</option>
           <option value="dessert">Dessert</option>
         </select>
         <label htmlFor="rating">Rating</label>
-        <select name="rating">
+        <select name="rating" defaultValue={this.props.recipeDetails.rating}>
           <option value="1">1 Fork</option>
           <option value="2">2 Forks</option>
           <option value="3">3 Forks</option>
@@ -59,9 +81,10 @@ class AddRecipe extends React.Component {
       userId: this.props.user.id
     }
     console.log(recipeToAdd)
-    this.props.addRecipe(recipeToAdd)
+    // this.props.addRecipe(recipeToAdd)
   }
   handleChange(event) {
+    console.log(this.state)
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -70,14 +93,15 @@ class AddRecipe extends React.Component {
 
 const mapState = state => {
   return {
-    user: state.user
+    user: state.user,
+    recipeDetails: state.recipeDetails
   }
 }
 
 const mapDispatch = dispatch => {
   return {
-    addRecipe: (recipeToAdd, userId) => dispatch(addRecipe(recipeToAdd, userId))
+    fetchRecipeDetails: recipeId => dispatch(fetchRecipeDetails(recipeId))
   }
 }
 
-export default connect(mapState, mapDispatch)(AddRecipe)
+export default connect(mapState, mapDispatch)(EditRecipe)
