@@ -21,8 +21,26 @@ router.post('/', async (req, res, next) => {
     userId: req.body.userId
   }
   try {
-    const newRecipe = Recipe.create(recipe)
+    const newRecipe = await Recipe.create(recipe)
     res.send(newRecipe)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.put('/', async (req, res, next) => {
+  try {
+    const editedRecipe = await Recipe.update(
+      {
+        name: req.body.recipeName,
+        ingredients: req.body.ingredients,
+        instructions: req.body.instructions,
+        category: req.body.category,
+        rating: req.body.rating
+      },
+      {where: {id: req.body.recipeId}}
+    )
+    res.send(editedRecipe)
   } catch (err) {
     next(err)
   }

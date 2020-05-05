@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchRecipeDetails} from '../store/recipes'
+import {fetchRecipeDetails, editRecipe} from '../store/recipes'
 
 class EditRecipe extends React.Component {
   constructor() {
@@ -9,8 +9,8 @@ class EditRecipe extends React.Component {
       recipeName: '',
       ingredients: '',
       instructions: '',
-      category: 'main course',
-      rating: '1'
+      category: '',
+      rating: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -72,16 +72,17 @@ class EditRecipe extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault()
-    const recipeToAdd = {
+    const recipeToEdit = {
       recipeName: this.state.recipeName,
       ingredients: this.state.ingredients,
       instructions: this.state.instructions,
       category: this.state.category,
       rating: this.state.rating,
-      userId: this.props.user.id
+      userId: this.props.user.id,
+      recipeId: this.props.recipeDetails.id
     }
-    console.log(recipeToAdd)
-    // this.props.addRecipe(recipeToAdd)
+    console.log('in handle submit', recipeToEdit)
+    this.props.editRecipe(recipeToEdit)
   }
   handleChange(event) {
     console.log(this.state)
@@ -100,7 +101,8 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    fetchRecipeDetails: recipeId => dispatch(fetchRecipeDetails(recipeId))
+    fetchRecipeDetails: recipeId => dispatch(fetchRecipeDetails(recipeId)),
+    editRecipe: recipe => dispatch(editRecipe(recipe))
   }
 }
 
