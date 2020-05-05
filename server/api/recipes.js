@@ -10,3 +10,20 @@ router.get('/:recipeId', async (req, res, next) => {
     next(err)
   }
 })
+
+router.post('/', async (req, res, next) => {
+  const recipe = {
+    name: req.body.recipeName,
+    ingredients: req.body.ingredients,
+    instructions: req.body.instructions,
+    category: req.body.category,
+    rating: req.body.rating,
+    userId: req.body.userId
+  }
+  try {
+    const newRecipe = Recipe.create(recipe)
+    res.send(newRecipe)
+  } catch (err) {
+    next(err)
+  }
+})
