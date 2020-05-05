@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Bungee Shade', cursive;
 }
 
 a {
@@ -18,4 +18,27 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.logo {
+  font-family: 'Bungee Shade', cursive;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type='text'],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }

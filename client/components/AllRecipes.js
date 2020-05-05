@@ -30,7 +30,8 @@ export class AllRecipes extends React.Component {
                       flex: 1,
                       margin: 'auto',
                       marginTop: '1rem',
-                      marginBottom: '1rem'
+                      marginBottom: '1rem',
+                      fontFamily: 'Bungee Shade, cursive'
                     }}
                   >
                     <Card.Img variant="top" src={recipe.imageURL} />
