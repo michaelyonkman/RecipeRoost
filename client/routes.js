@@ -32,9 +32,9 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserHome} />
+            <Route path="/addRecipe" component={AddRecipe} />
             <Route path="/recipes/edit/:recipeId" component={EditRecipe} />
             <Route path="/recipes/:recipeId" component={RecipeDetails} />
-            <Route path="/addRecipe" component={AddRecipe} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchRecipeDetails} from '../store/recipes'
 
-export class RecipeDetails extends React.Component {
+class RecipeDetails extends React.Component {
   componentDidMount() {
     console.log(this.props)
     this.props.fetchRecipeDetails(this.props.match.params.recipeId)
