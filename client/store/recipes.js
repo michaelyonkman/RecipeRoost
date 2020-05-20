@@ -3,6 +3,7 @@ import axios from 'axios'
 const SET_RECIPE_DETAILS = 'SET_RECIPE_DETAILS'
 const ADD_NEW_RECIPE = 'ADD_NEW_RECIPE'
 const EDIT_RECIPE_DETAILS = 'EDIT_RECIPE_DETAILS'
+const DELETE_RECIPE = 'DELETE_RECIPE'
 
 export const setRecipeDetails = recipe => {
   return {
@@ -21,6 +22,13 @@ export const addNewRecipe = recipe => {
 export const editRecipeDetails = recipe => {
   return {
     type: EDIT_RECIPE_DETAILS,
+    recipe
+  }
+}
+
+export const deleteRecipe = recipe => {
+  return {
+    type: DELETE_RECIPE,
     recipe
   }
 }
@@ -58,6 +66,17 @@ export const editRecipe = recipe => {
   }
 }
 
+export const deleteRecipeThunk = recipeId => {
+  return async dispatch => {
+    try {
+      const response = await axios.delete(`/api/recipes/${recipeId}`)
+      dispatch(deleteRecipe(response.data))
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
 const recipesReducer = (state = {}, action) => {
   switch (action.type) {
     case SET_RECIPE_DETAILS:
@@ -65,6 +84,8 @@ const recipesReducer = (state = {}, action) => {
     case ADD_NEW_RECIPE:
       return action.recipe
     case EDIT_RECIPE_DETAILS:
+      return action.recipe
+    case DELETE_RECIPE:
       return action.recipe
     default:
       return state

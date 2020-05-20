@@ -45,3 +45,16 @@ router.put('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.delete('/:recipeId', async (req, res, next) => {
+  try {
+    const id = req.params.recipeId
+    await Recipe.destroy({where: {id}})
+    res.status(200).json({
+      message: 'Deleted Successfully',
+      id
+    })
+  } catch (err) {
+    next(err)
+  }
+})

@@ -1,8 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchRecipeDetails, editRecipe} from '../store/recipes'
+import {
+  fetchRecipeDetails,
+  editRecipe,
+  deleteRecipeThunk
+} from '../store/recipes'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import history from '../history'
 
 class EditRecipe extends React.Component {
   constructor() {
@@ -19,6 +24,7 @@ class EditRecipe extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleClose = this.handleClose.bind(this)
     this.handleShow = this.handleShow.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
   async componentDidMount() {
     await this.props.fetchRecipeDetails(this.props.match.params.recipeId)
@@ -74,21 +80,24 @@ class EditRecipe extends React.Component {
           <input type="file" />
           <button type="submit">Submit</button>
         </form>
-        <Button variant="primary" onClick={this.handleShow}>
-          Launch demo modal
+        <Button variant="danger" onClick={this.handleShow}>
+          Delete Recipe
         </Button>
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Delete Recipe</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Body>
+            Are you sure you want to delete this recipe? This recipe will be
+            removed permanently from your recipe box.
+          </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose}>
-              Close
+              Back
             </Button>
-            <Button variant="primary" onClick={this.handleClose}>
-              Save Changes
+            <Button variant="danger" onClick={this.handleDelete}>
+              Delete
             </Button>
           </Modal.Footer>
         </Modal>
@@ -106,14 +115,16 @@ class EditRecipe extends React.Component {
       userId: this.props.user.id,
       recipeId: this.props.recipeDetails.id
     }
-    console.log('in handle submit', recipeToEdit)
     this.props.editRecipe(recipeToEdit)
   }
   handleChange(event) {
-    console.log(this.state)
     this.setState({
       [event.target.name]: event.target.value
     })
+  }
+  handleDelete() {
+    this.props.deleteRecipe(this.props.recipeDetails.id)
+    history.push('/home')
   }
   handleClose() {
     this.setState({show: false})
@@ -133,7 +144,8 @@ const mapState = state => {
 const mapDispatch = dispatch => {
   return {
     fetchRecipeDetails: recipeId => dispatch(fetchRecipeDetails(recipeId)),
-    editRecipe: recipe => dispatch(editRecipe(recipe))
+    editRecipe: recipe => dispatch(editRecipe(recipe)),
+    deleteRecipe: recipeId => dispatch(deleteRecipeThunk(recipeId))
   }
 }
 
