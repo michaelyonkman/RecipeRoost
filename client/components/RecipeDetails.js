@@ -5,7 +5,6 @@ import {fetchRecipeDetails} from '../store/recipes'
 
 class RecipeDetails extends React.Component {
   componentDidMount() {
-    console.log(this.props)
     this.props.fetchRecipeDetails(this.props.match.params.recipeId)
   }
 
@@ -13,7 +12,7 @@ class RecipeDetails extends React.Component {
     const recipe = this.props.recipeDetails
 
     return (
-      <div>
+      <div className="recipeDetails">
         <h3>{recipe.name}</h3>
         <img src={recipe.imageURL} />
         <p>{recipe.ingredients}</p>

@@ -1,5 +1,5 @@
 body {
-  font-family: 'Bungee Shade', cursive;
+  font-family: 'Rock Salt', cursive;
 }
 
 a {
@@ -13,6 +13,8 @@ label {
 nav a {
   display: inline-block;
   margin: 1em;
+  font-family: 'Rock Salt', cursive;
+  color: white;
 }
 
 form div {
@@ -21,7 +23,9 @@ form div {
 }
 
 .logo {
-  font-family: 'Bungee Shade', cursive;
+  font-family: 'Rock Salt', cursive;
+  margin-top: 10px;
+  margin-left: 5%;
 }
 
 form {
@@ -31,7 +35,8 @@ form {
   width: 100%;
 }
 
-input[type='text'],
+/* input[type='text'],
+input[type='password'],
 select,
 textarea {
   width: 90%;
@@ -41,7 +46,7 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-}
+} */
 
 textarea {
   height: 400px;
@@ -50,4 +55,52 @@ textarea {
 label {
   font-weight: bold;
   margin-top: 20px;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.navContainer {
+  background-color: blueviolet;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.navLinks a {
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+
+.recipeDetails {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Rock Salt', cursive;
+  padding: 40px;
+  align-items: center;
+}
+
+.recipeDetails img {
+  max-width: 90%;
+  height: auto;
+}
+
+.formContainer {
+  padding-top: 60px;
+}
+
+.formContainer input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.inputContainer {
+  width: 70%;
 }

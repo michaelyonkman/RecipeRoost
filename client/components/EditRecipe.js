@@ -7,6 +7,7 @@ import {
 } from '../store/recipes'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
 import history from '../history'
 
 class EditRecipe extends React.Component {
@@ -33,7 +34,6 @@ class EditRecipe extends React.Component {
     this.state.instructions = this.props.recipeDetails.instructions
     this.state.category = this.props.recipeDetails.category
     this.state.rating = this.props.recipeDetails.rating
-    console.log(this.state)
   }
   render() {
     return (
@@ -78,29 +78,34 @@ class EditRecipe extends React.Component {
           </select>
           <label htmlFor="imageURL">Image</label>
           <input type="file" />
-          <button type="submit">Submit</button>
+          <div className="buttonContainer">
+            <div>
+              <Button type="submit">Submit</Button>
+            </div>
+            <div>
+              <Button variant="danger" onClick={this.handleShow}>
+                Delete Recipe
+              </Button>
+            </div>
+          </div>
+          <Modal show={this.state.show} onHide={this.handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Delete Recipe</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Are you sure you want to delete this recipe? This recipe will be
+              removed permanently from your recipe box.
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={this.handleClose}>
+                Back
+              </Button>
+              <Button variant="danger" onClick={this.handleDelete}>
+                Delete
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </form>
-        <Button variant="danger" onClick={this.handleShow}>
-          Delete Recipe
-        </Button>
-
-        <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Delete Recipe</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            Are you sure you want to delete this recipe? This recipe will be
-            removed permanently from your recipe box.
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
-              Back
-            </Button>
-            <Button variant="danger" onClick={this.handleDelete}>
-              Delete
-            </Button>
-          </Modal.Footer>
-        </Modal>
       </>
     )
   }
@@ -116,6 +121,7 @@ class EditRecipe extends React.Component {
       recipeId: this.props.recipeDetails.id
     }
     this.props.editRecipe(recipeToEdit)
+    history.push(`/recipes/${this.props.recipeDetails.id}`)
   }
   handleChange(event) {
     this.setState({

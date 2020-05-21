@@ -31,12 +31,18 @@ export class AllRecipes extends React.Component {
                       margin: 'auto',
                       marginTop: '1rem',
                       marginBottom: '1rem',
-                      fontFamily: 'Bungee Shade, cursive'
+                      fontFamily: 'Rock Salt, cursive'
                     }}
                   >
                     <Card.Img variant="top" src={recipe.imageURL} />
                     <Link to={`recipes/${recipe.id}`}>
-                      <Card.Title>{recipe.name}</Card.Title>
+                      <Card.Title
+                        style={{
+                          marginLeft: '.5rem'
+                        }}
+                      >
+                        {recipe.name}
+                      </Card.Title>
                     </Link>
                     {/* <p>{recipe.ingredients}</p>
                     <p>{recipe.instructions}</p>
