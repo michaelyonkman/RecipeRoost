@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
+import Button from 'react-bootstrap/Button'
 
 /**
  * COMPONENT
@@ -19,13 +20,34 @@ const AuthForm = props => {
           <div className="inputContainer">
             <input name="password" type="password" placeholder="Password" />
           </div>
-          <div>
-            <button type="submit">{displayName}</button>
-          </div>
+          <Button
+            type="submit"
+            style={{
+              backgroundColor: '#3c4f76',
+              width: '50%',
+              marginTop: '50px',
+              fontFamily: 'Rock Salt, cursive',
+              borderStyle: 'none'
+            }}
+          >
+            {displayName}
+          </Button>
+          <p>OR</p>
           {error && error.response && <div> {error.response.data} </div>}
+          <Button
+            href="/auth/google"
+            style={{
+              backgroundColor: '#3c4f76',
+              width: '50%',
+              marginTop: '10px',
+              fontFamily: 'Rock Salt, cursive',
+              borderStyle: 'none'
+            }}
+          >
+            {displayName} with Google
+          </Button>
         </form>
       </div>
-      <a href="/auth/google">{displayName} with Google</a>
     </div>
   )
 }

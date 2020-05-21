@@ -3,11 +3,16 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import {FaFeatherAlt} from 'react-icons/fa'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div className="navContainer">
     <div className="logoContainer">
-      <h1 className="logo">Recipe Roost</h1>
+      <h1 className="logo">
+        Recipe <FaFeatherAlt style={{color: '#ff6700', marginRight: '10px'}} />
+        {'  '}
+        Roost
+      </h1>
     </div>
     <nav>
       {isLoggedIn ? (
@@ -27,7 +32,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         </div>
       )}
     </nav>
-    <hr />
   </div>
 )
 

@@ -24,7 +24,7 @@ form div {
 
 .logo {
   font-family: 'Rock Salt', cursive;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 5%;
 }
 
@@ -63,7 +63,9 @@ label {
 }
 
 .navContainer {
-  background-color: blueviolet;
+  background-color: #cfc7d2;
+  color: #111344;
+  border-bottom: 1px solid #111344;
 }
 
 .buttonContainer {
@@ -75,7 +77,23 @@ label {
 
 .navLinks a {
   margin-top: 40px;
-  margin-bottom: 0px;
+}
+
+.navLinks a:hover {
+  color: #ff670f;
+  text-decoration: none;
+}
+
+.formContainer button:hover {
+  color: #ff670f;
+}
+
+.formContainer a:hover {
+  color: #ff670f;
+}
+
+.formContainer input:hover {
+  border-bottom: 2px solid #ff670f;
 }
 
 .recipeDetails {
@@ -98,9 +116,23 @@ label {
 .formContainer input {
   width: 100%;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #111344;
+}
+
+.formContainer p {
+  font-family: 'Rock Salt', cursive;
+  margin-top: 20px;
 }
 
 .inputContainer {
   width: 70%;
+}
+
+.emptyMessage {
+  font-family: 'Rock Salt', cursive;
+  padding-top: 40px;
+}
+
+::placeholder {
+  font-family: 'Rock Salt', cursive;
 }

@@ -20,7 +20,7 @@ export class AllRecipes extends React.Component {
             justifyContent: 'space-evenly'
           }}
         >
-          {recipes.length &&
+          {recipes.length ? (
             recipes.map(recipe => {
               return (
                 <div key={recipe.id}>
@@ -50,7 +50,12 @@ export class AllRecipes extends React.Component {
                   </Card>
                 </div>
               )
-            })}
+            })
+          ) : (
+            <div className="emptyMessage">
+              <p>Your recipe box is empty.</p>
+            </div>
+          )}
         </CardDeck>
       </div>
     )
