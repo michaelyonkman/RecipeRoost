@@ -120,7 +120,7 @@ class EditRecipe extends React.Component {
               backgroundColor: '#3c4f76',
               width: '50%',
               marginTop: '50px',
-              marginBottom: '50px',
+              marginBottom: '2rem',
               fontFamily: 'Rock Salt, cursive',
               borderStyle: 'none'
             }}
@@ -130,9 +130,9 @@ class EditRecipe extends React.Component {
           <Button
             onClick={this.handleShow}
             style={{
-              backgroundColor: 'red',
+              backgroundColor: '#ff670f',
               width: '50%',
-              marginBottom: '50px',
+              marginBottom: '2rem',
               fontFamily: 'Rock Salt, cursive',
               borderStyle: 'none'
             }}
@@ -151,7 +151,6 @@ class EditRecipe extends React.Component {
             </Modal.Body>
             <Modal.Footer>
               <Button
-                variant="secondary"
                 onClick={this.handleClose}
                 style={{
                   backgroundColor: '#3c4f76',
@@ -164,7 +163,7 @@ class EditRecipe extends React.Component {
               <Button
                 onClick={this.handleDelete}
                 style={{
-                  backgroundColor: 'red',
+                  backgroundColor: '#ff670f',
                   fontFamily: 'Rock Salt, cursive',
                   borderStyle: 'none'
                 }}

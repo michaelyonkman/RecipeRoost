@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchRecipeDetails} from '../store/recipes'
+import Button from 'react-bootstrap/Button'
 
 class RecipeDetails extends React.Component {
   componentDidMount() {
@@ -17,8 +18,20 @@ class RecipeDetails extends React.Component {
         <img src={recipe.imageURL} />
         <p>{recipe.ingredients}</p>
         <p>{recipe.instructions}</p>
-        <p>{recipe.rating}</p>
-        <Link to={`/recipes/edit/${recipe.id}`}>Edit Recipe</Link>
+        <p>{recipe.rating} Forks</p>
+        <Button
+          href={`/recipes/edit/${recipe.id}`}
+          style={{
+            backgroundColor: '#3c4f76',
+            width: '50%',
+            marginTop: '2rem',
+            marginBottom: '2rem',
+            fontFamily: 'Rock Salt, cursive',
+            borderStyle: 'none'
+          }}
+        >
+          Edit Recipe
+        </Button>
       </div>
     )
   }

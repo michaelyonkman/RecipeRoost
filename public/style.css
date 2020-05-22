@@ -133,12 +133,9 @@ label {
   font-family: 'Rock Salt', cursive;
 }
 
-.addRecipeLinkContainer {
+.addRecipeButtonContainer {
   display: flex;
   justify-content: center;
-  font-family: 'Rock Salt', cursive;
-  margin-top: 50px;
-  margin-bottom: 50px;
 }
 
 .welcome {
@@ -176,6 +173,15 @@ label {
   margin-bottom: 2rem;
 }
 
-select:hover {
-  box-shadow: 0 0 10px 100px #ff670f inset;
+.text-center a {
+  color: #111344;
 }
+
+.text-center a:hover {
+  color: #ff670f;
+  text-decoration: none;
+}
+
+/* select:hover {
+  box-shadow: 0 0 10px 100px #ff670f inset;
+} */

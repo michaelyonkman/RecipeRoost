@@ -88,8 +88,8 @@ class AddRecipe extends React.Component {
             style={{
               backgroundColor: '#3c4f76',
               width: '50%',
-              marginTop: '50px',
-              marginBottom: '50px',
+              marginTop: '2rem',
+              marginBottom: '2rem',
               fontFamily: 'Rock Salt, cursive',
               borderStyle: 'none'
             }}
