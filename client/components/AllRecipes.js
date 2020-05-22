@@ -57,6 +57,9 @@ export class AllRecipes extends React.Component {
             </div>
           )}
         </CardDeck>
+        <div className="addRecipeLinkContainer">
+          <Link to="/addRecipe">Add Recipe</Link>
+        </div>
       </div>
     )
   }

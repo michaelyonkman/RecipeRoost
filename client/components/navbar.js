@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
-import {FaFeatherAlt} from 'react-icons/fa'
+import {GiFeather} from 'react-icons/gi'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div className="navContainer">
     <div className="logoContainer">
       <h1 className="logo">
-        Recipe <FaFeatherAlt style={{color: '#ff6700', marginRight: '10px'}} />
+        Recipe <GiFeather style={{color: '#ff6700', fontSize: '4rem'}} />
         {'  '}
         Roost
       </h1>
@@ -19,7 +19,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         <div className="navLinks">
           {/* The navbar will show these links after you log in */}
           <Link to="/home">Home</Link>
-          <Link to="/addRecipe">Add Recipe</Link>
           <a href="#" onClick={handleClick}>
             Logout
           </a>
