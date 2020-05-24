@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
 import {fetchRecipeDetails} from '../store/recipes'
 import Button from 'react-bootstrap/Button'
 
@@ -11,13 +10,16 @@ class RecipeDetails extends React.Component {
 
   render() {
     const recipe = this.props.recipeDetails
-
+    console.log(recipe)
     return (
       <div className="recipeDetails">
         <h3>{recipe.name}</h3>
         <img src={recipe.imageURL} />
+        <h5>Ingredients</h5>
         <p>{recipe.ingredients}</p>
+        <h5>Instructions</h5>
         <p>{recipe.instructions}</p>
+        <h5>Rating</h5>
         <p>{recipe.rating} Forks</p>
         <div className="editButtonContainer">
           <Button

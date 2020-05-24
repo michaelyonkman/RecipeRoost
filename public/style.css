@@ -96,6 +96,11 @@ label {
   align-items: center;
 }
 
+.recipeDetails p {
+  width: 100%;
+  white-space: pre-wrap;
+}
+
 .recipeDetails img {
   max-width: 90%;
   height: auto;
