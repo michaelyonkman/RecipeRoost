@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {addRecipe} from '../store/recipes'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import history from '../history'
 
 class AddRecipe extends React.Component {
   constructor() {
@@ -33,58 +34,61 @@ class AddRecipe extends React.Component {
           <textarea name="instructions" />
           {/* <label htmlFor="imageURL">Image</label>
             <input type="file" /> */}
-          <Form>
-            <Form.Group
+        </form>
+        <Form onChange={this.handleChange}>
+          <Form.Group
+            style={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
+            <Form.Control
+              as="select"
+              name="category"
               style={{
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center'
+                fontFamily: 'Rock Salt, cursive',
+                width: '50%'
               }}
             >
-              <Form.Control
-                as="select"
-                name="category"
-                style={{
-                  fontFamily: 'Rock Salt, cursive',
-                  width: '50%'
-                }}
-              >
-                <option value="" disabled selected>
-                  Category
-                </option>
-                <option value="mainCourse">Main Course</option>
-                <option value="starter">Starter</option>
-                <option value="dessert">Dessert</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group
+              <option value="" disabled selected>
+                Category
+              </option>
+              <option value="mainCourse">Main Course</option>
+              <option value="starter">Starter</option>
+              <option value="dessert">Dessert</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group
+            style={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
+            <Form.Control
+              as="select"
+              name="rating"
               style={{
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center'
+                fontFamily: 'Rock Salt, cursive',
+                width: '50%'
               }}
             >
-              <Form.Control
-                as="select"
-                name="rating"
-                style={{
-                  fontFamily: 'Rock Salt, cursive',
-                  width: '50%'
-                }}
-              >
-                <option value="" disabled selected>
-                  Rating
-                </option>
-                <option value="1">1 Fork</option>
-                <option value="2">2 Forks</option>
-                <option value="3">3 Forks</option>
-                <option value="4">4 Forks</option>
-                <option value="5">5 Forks</option>
-              </Form.Control>
-            </Form.Group>
-          </Form>
+              <option value="" disabled selected>
+                Rating
+              </option>
+              <option value="1">1 Fork</option>
+              <option value="2">2 Forks</option>
+              <option value="3">3 Forks</option>
+              <option value="4">4 Forks</option>
+              <option value="5">5 Forks</option>
+            </Form.Control>
+          </Form.Group>
+        </Form>
+        <div className="editButtonContainer">
           <Button
             type="submit"
+            onClick={this.handleSubmit}
             style={{
               backgroundColor: '#3c4f76',
               width: '50%',
@@ -96,7 +100,7 @@ class AddRecipe extends React.Component {
           >
             Submit
           </Button>
-        </form>
+        </div>
       </div>
     )
   }
@@ -112,6 +116,7 @@ class AddRecipe extends React.Component {
     }
     console.log(recipeToAdd)
     this.props.addRecipe(recipeToAdd)
+    history.push('/home')
   }
   handleChange(event) {
     this.setState({

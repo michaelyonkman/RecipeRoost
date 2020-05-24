@@ -7,15 +7,69 @@ import CardDeck from 'react-bootstrap/CardDeck'
 import Button from 'react-bootstrap/Button'
 
 export class AllRecipes extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      recipes: [],
+      isSearching: false,
+      searchVal: ''
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+  }
   componentDidMount() {
     this.props.getRecipes()
   }
 
   render() {
-    const recipes = this.props.userRecipes
+    let recipes
+    if (this.state.isSearching) {
+      recipes = this.state.recipes
+    } else {
+      recipes = this.props.userRecipes
+    }
 
     return (
       <div>
+        <div className="recipeFormContainer">
+          <form onChange={this.handleChange}>
+            <input
+              name="searchVal"
+              type="text"
+              placeholder="Search by name, ingredient, or category "
+            />
+          </form>
+          <div className="addRecipeButtonContainer">
+            <Button
+              type="submit"
+              onClick={this.handleSubmit}
+              style={{
+                backgroundColor: '#3c4f76',
+                width: '50%',
+                marginTop: '1rem',
+                marginBottom: '1rem',
+                fontFamily: 'Rock Salt, cursive',
+                borderStyle: 'none'
+              }}
+            >
+              Search
+            </Button>
+
+            <Button
+              href="/addRecipe"
+              style={{
+                backgroundColor: '#3c4f76',
+                width: '50%',
+                marginTop: '1rem',
+                marginBottom: '2rem',
+                fontFamily: 'Rock Salt, cursive',
+                borderStyle: 'none'
+              }}
+            >
+              Add Recipe
+            </Button>
+          </div>
+        </div>
         <CardDeck
           style={{
             justifyContent: 'space-evenly'
@@ -49,27 +103,35 @@ export class AllRecipes extends React.Component {
             })
           ) : (
             <div className="emptyMessage">
-              <p>Your recipe box is empty.</p>
+              <p>No recipes found</p>
             </div>
           )}
         </CardDeck>
-        <div className="addRecipeButtonContainer">
-          <Button
-            href="/addRecipe"
-            style={{
-              backgroundColor: '#3c4f76',
-              width: '50%',
-              marginTop: '2rem',
-              marginBottom: '2rem',
-              fontFamily: 'Rock Salt, cursive',
-              borderStyle: 'none'
-            }}
-          >
-            Add Recipe
-          </Button>
-        </div>
       </div>
     )
+  }
+  filterRecipes(searchVal) {
+    const filteredRecipes = this.props.userRecipes.filter(
+      recipe =>
+        recipe.ingredients.toLowerCase().includes(searchVal.toLowerCase()) ||
+        recipe.name.toLowerCase().includes(searchVal.toLowerCase()) ||
+        recipe.category.toLowerCase().includes(searchVal.toLowerCase())
+    )
+    return filteredRecipes
+  }
+  handleSubmit() {
+    const searchVal = this.state.searchVal
+    this.setState({
+      recipes: this.filterRecipes(searchVal),
+      isSearching: true
+    })
+    console.log(this.state)
+  }
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+    console.log('IN CHANGE', this.props.userRecipes)
   }
 }
 

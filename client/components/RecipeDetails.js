@@ -19,19 +19,21 @@ class RecipeDetails extends React.Component {
         <p>{recipe.ingredients}</p>
         <p>{recipe.instructions}</p>
         <p>{recipe.rating} Forks</p>
-        <Button
-          href={`/recipes/edit/${recipe.id}`}
-          style={{
-            backgroundColor: '#3c4f76',
-            width: '50%',
-            marginTop: '2rem',
-            marginBottom: '2rem',
-            fontFamily: 'Rock Salt, cursive',
-            borderStyle: 'none'
-          }}
-        >
-          Edit Recipe
-        </Button>
+        <div className="editButtonContainer">
+          <Button
+            href={`/recipes/edit/${recipe.id}`}
+            style={{
+              backgroundColor: '#3c4f76',
+              width: '50%',
+              marginTop: '2rem',
+              marginBottom: '2rem',
+              fontFamily: 'Rock Salt, cursive',
+              borderStyle: 'none'
+            }}
+          >
+            Edit Recipe
+          </Button>
+        </div>
       </div>
     )
   }

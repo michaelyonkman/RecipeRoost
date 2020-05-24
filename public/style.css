@@ -127,6 +127,7 @@ label {
 
 ::placeholder {
   font-family: 'Rock Salt', cursive;
+  padding-left: 5px;
 }
 
 label {
@@ -135,7 +136,9 @@ label {
 
 .addRecipeButtonContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .welcome {
@@ -180,6 +183,38 @@ label {
 .text-center a:hover {
   color: #ff670f;
   text-decoration: none;
+}
+
+.editButtonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editButtonContainer button:hover,
+.editButtonContainer a:hover {
+  color: #ff670f;
+}
+
+.deleteButtonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.deleteButtonContainer button:hover {
+  color: #111344;
+}
+
+input {
+  text-overflow: ellipsis;
+}
+
+.addRecipeButtonContainer button:hover,
+.addRecipeButtonContainer a:hover {
+  color: #ff670f;
 }
 
 /* select:hover {
