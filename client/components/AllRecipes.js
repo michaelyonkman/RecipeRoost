@@ -6,6 +6,12 @@ import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Button from 'react-bootstrap/Button'
 
+export function home() {
+  if (this.state.isSearching) {
+    this.setState({isSearching: false, searchVal: ''})
+  }
+}
+
 export class AllRecipes extends React.Component {
   constructor() {
     super()
@@ -16,6 +22,8 @@ export class AllRecipes extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    // eslint-disable-next-line no-func-assign
+    home = home.bind(this)
   }
   componentDidMount() {
     this.props.getRecipes()
@@ -32,11 +40,13 @@ export class AllRecipes extends React.Component {
     return (
       <div>
         <div className="recipeFormContainer">
-          <form onChange={this.handleChange}>
+          <form>
             <input
+              onChange={this.handleChange}
               name="searchVal"
               type="text"
               placeholder="Search by name, ingredient, or category "
+              value={this.state.searchVal}
             />
           </form>
           <div className="addRecipeButtonContainer">
@@ -119,19 +129,18 @@ export class AllRecipes extends React.Component {
     )
     return filteredRecipes
   }
+
   handleSubmit() {
     const searchVal = this.state.searchVal
     this.setState({
       recipes: this.filterRecipes(searchVal),
       isSearching: true
     })
-    console.log(this.state)
   }
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     })
-    console.log('IN CHANGE', this.props.userRecipes)
   }
 }
 
