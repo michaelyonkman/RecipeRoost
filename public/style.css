@@ -231,6 +231,9 @@ input {
   color: #ff670f;
 }
 
+label.custom-file-label {
+  margin: 0;
+}
 /* select:hover {
   box-shadow: 0 0 10px 100px #ff670f inset;
 } */

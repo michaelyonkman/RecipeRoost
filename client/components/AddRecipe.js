@@ -12,8 +12,8 @@ class AddRecipe extends React.Component {
       recipeName: '',
       ingredients: '',
       instructions: '',
-      category: 'main course',
-      rating: '1 fork'
+      category: '',
+      rating: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -88,7 +88,14 @@ class AddRecipe extends React.Component {
               <option value="5 forks">5 Forks</option>
             </Form.Control>
           </Form.Group>
+          {/* <Form.File
+            id="custom-file"
+            label="Image"
+            style={{width: '50%', marginTop: '1rem', marginBotton: '2rem'}}
+            custom
+          /> */}
         </Form>
+
         <div className="editButtonContainer">
           <Button
             type="submit"
@@ -108,7 +115,7 @@ class AddRecipe extends React.Component {
       </div>
     )
   }
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault()
     const recipeToAdd = {
       recipeName: this.state.recipeName,
@@ -119,7 +126,7 @@ class AddRecipe extends React.Component {
       userId: this.props.user.id
     }
     console.log(recipeToAdd)
-    this.props.addRecipe(recipeToAdd)
+    await this.props.addRecipe(recipeToAdd)
     history.push('/home')
   }
   handleChange(event) {

@@ -14,7 +14,7 @@ class RecipeDetails extends React.Component {
     return (
       <div className="recipeDetails">
         <h3>{recipe.name}</h3>
-        <img src={recipe.imageURL} />
+        {/* <img src={recipe.imageURL} /> */}
         <h5>Ingredients</h5>
         <p>{recipe.ingredients}</p>
         <h5>Instructions</h5>

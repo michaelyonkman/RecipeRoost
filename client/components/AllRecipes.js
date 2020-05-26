@@ -100,7 +100,7 @@ export class AllRecipes extends React.Component {
                       fontFamily: 'Rock Salt, cursive'
                     }}
                   >
-                    <Card.Img variant="top" src={recipe.imageURL} />
+                    {/* <Card.Img variant="top" src={recipe.imageURL} /> */}
                     <Link to={`recipes/${recipe.id}`}>
                       <Card.Title style={{marginTop: '1rem'}}>
                         {recipe.name}
