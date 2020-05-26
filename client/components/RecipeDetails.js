@@ -20,7 +20,7 @@ class RecipeDetails extends React.Component {
         <h5>Instructions</h5>
         <p>{recipe.instructions}</p>
         <h5>Rating</h5>
-        <p>{recipe.rating} Forks</p>
+        <p>{recipe.rating}</p>
         <div className="editButtonContainer">
           <Button
             href={`/recipes/edit/${recipe.id}`}

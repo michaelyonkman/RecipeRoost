@@ -13,7 +13,7 @@ class AddRecipe extends React.Component {
       ingredients: '',
       instructions: '',
       category: 'main course',
-      rating: '1'
+      rating: '1 fork'
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -35,7 +35,7 @@ class AddRecipe extends React.Component {
           {/* <label htmlFor="imageURL">Image</label>
             <input type="file" /> */}
         </form>
-        <Form onChange={this.handleChange}>
+        <Form>
           <Form.Group
             style={{
               width: '100%',
@@ -46,15 +46,17 @@ class AddRecipe extends React.Component {
             <Form.Control
               as="select"
               name="category"
+              defaultValue="default"
+              onChange={this.handleChange}
               style={{
                 fontFamily: 'Rock Salt, cursive',
                 width: '50%'
               }}
             >
-              <option value="" disabled selected>
+              <option value="default" disabled>
                 Category
               </option>
-              <option value="mainCourse">Main Course</option>
+              <option value="main course">Main Course</option>
               <option value="starter">Starter</option>
               <option value="dessert">Dessert</option>
             </Form.Control>
@@ -69,19 +71,21 @@ class AddRecipe extends React.Component {
             <Form.Control
               as="select"
               name="rating"
+              defaultValue="default"
+              onChange={this.handleChange}
               style={{
                 fontFamily: 'Rock Salt, cursive',
                 width: '50%'
               }}
             >
-              <option value="" disabled selected>
+              <option value="default" disabled>
                 Rating
               </option>
-              <option value="1">1 Fork</option>
-              <option value="2">2 Forks</option>
-              <option value="3">3 Forks</option>
-              <option value="4">4 Forks</option>
-              <option value="5">5 Forks</option>
+              <option value="1 fork">1 Fork</option>
+              <option value="2 forks">2 Forks</option>
+              <option value="3 forks">3 Forks</option>
+              <option value="4 forks">4 Forks</option>
+              <option value="5 forks">5 Forks</option>
             </Form.Control>
           </Form.Group>
         </Form>

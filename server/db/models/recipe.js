@@ -30,7 +30,7 @@ const Recipe = db.define('recipe', {
     }
   },
   rating: {
-    type: Sequelize.INTEGER
+    type: Sequelize.STRING
   }
 })
 

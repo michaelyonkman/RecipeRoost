@@ -60,7 +60,7 @@ class EditRecipe extends React.Component {
             defaultValue={this.props.recipeDetails.instructions}
           />
         </form>
-        <Form onChange={this.handleChange}>
+        <Form>
           <Form.Group
             style={{
               width: '100%',
@@ -72,15 +72,16 @@ class EditRecipe extends React.Component {
               as="select"
               name="category"
               defaultValue={this.props.recipeDetails.category}
+              onChange={this.handleChange}
               style={{
                 fontFamily: 'Rock Salt, cursive',
                 width: '50%'
               }}
             >
-              <option value="" disabled selected>
+              {/* <option value="" disabled selected>
                 Category
-              </option>
-              <option value="mainCourse">Main Course</option>
+              </option> */}
+              <option value="main course">Main Course</option>
               <option value="starter">Starter</option>
               <option value="dessert">Dessert</option>
             </Form.Control>
@@ -96,19 +97,20 @@ class EditRecipe extends React.Component {
               as="select"
               name="rating"
               defaultValue={this.props.recipeDetails.rating}
+              onChange={this.handleChange}
               style={{
                 fontFamily: 'Rock Salt, cursive',
                 width: '50%'
               }}
             >
-              <option value="" disabled selected>
+              {/* <option value="" disabled selected>
                 Rating
-              </option>
-              <option value="1">1 Fork</option>
-              <option value="2">2 Forks</option>
-              <option value="3">3 Forks</option>
-              <option value="4">4 Forks</option>
-              <option value="5">5 Forks</option>
+              </option> */}
+              <option value="1 fork">1 Fork</option>
+              <option value="2 forks">2 Forks</option>
+              <option value="3 forks">3 Forks</option>
+              <option value="4 forks">4 Forks</option>
+              <option value="5 forks">5 Forks</option>
             </Form.Control>
           </Form.Group>
         </Form>
