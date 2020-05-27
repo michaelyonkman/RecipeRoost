@@ -12,6 +12,21 @@ const AuthForm = props => {
 
   return (
     <div>
+      <div className="intro">
+        <div className="introText">
+          <p>
+            Have you ever wished that you had <u>one</u> place to keep all of
+            your favorite recipes? Can't remember which site had that bangin'
+            Bolognese recipe? Where was that perfect Pad Thai recipe again?
+            Recipe Roost is <u>the</u> online home for all of your best-loved
+            recipes. Once you create an account, you can add recipes from any
+            source with some simple copy and paste. Now that you're up and
+            running with some recipes in your box, you can access them from
+            anywhere in the world on your PC or mobile device. It's that simple.
+            What are you waiting for? Join now!
+          </p>
+        </div>
+      </div>
       <div className="formContainer">
         <form onSubmit={handleSubmit} name={name}>
           <div className="inputContainer">

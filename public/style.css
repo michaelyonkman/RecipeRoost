@@ -239,6 +239,32 @@ textarea {
 label.custom-file-label {
   margin: 0;
 }
+
+.intro {
+  display: flex;
+  justify-content: center;
+  font-family: 'Rock Salt', cursive;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.introText {
+  width: 70%;
+  text-align: justify;
+  border: solid #ff670f 1px;
+  box-shadow: 5px 10px 18px #ff670f;
+  padding: 1rem 1rem 0rem 1rem;
+}
+
+select {
+  text-align: center;
+  text-align-last: center;
+  /* webkit*/
+}
+option {
+  text-align: left;
+  /* reset to left*/
+}
 /* select:hover {
   box-shadow: 0 0 10px 100px #ff670f inset;
 } */
