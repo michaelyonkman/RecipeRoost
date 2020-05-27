@@ -32,9 +32,9 @@ const AuthForm = props => {
           >
             {displayName}
           </Button>
-          <p>OR</p>
+          {/* <p>OR</p> */}
           {error && error.response && <div> {error.response.data} </div>}
-          <Button
+          {/* <Button
             href="/auth/google"
             style={{
               backgroundColor: '#3c4f76',
@@ -45,7 +45,7 @@ const AuthForm = props => {
             }}
           >
             {displayName} with Google
-          </Button>
+          </Button> */}
         </form>
       </div>
     </div>
