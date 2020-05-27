@@ -97,7 +97,8 @@ export class AllRecipes extends React.Component {
                       margin: 'auto',
                       marginTop: '1rem',
                       marginBottom: '1rem',
-                      fontFamily: 'Rock Salt, cursive'
+                      fontFamily: 'Rock Salt, cursive',
+                      backgroundColor: '#cfc7d2'
                     }}
                   >
                     {/* <Card.Img variant="top" src={recipe.imageURL} /> */}

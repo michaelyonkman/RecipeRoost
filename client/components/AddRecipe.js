@@ -125,7 +125,6 @@ class AddRecipe extends React.Component {
       rating: this.state.rating,
       userId: this.props.user.id
     }
-    console.log(recipeToAdd)
     await this.props.addRecipe(recipeToAdd)
     history.push('/home')
   }

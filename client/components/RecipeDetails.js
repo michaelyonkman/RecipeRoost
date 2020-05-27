@@ -10,7 +10,6 @@ class RecipeDetails extends React.Component {
 
   render() {
     const recipe = this.props.recipeDetails
-    console.log(recipe)
     return (
       <div className="recipeDetails">
         <h3>{recipe.name}</h3>
