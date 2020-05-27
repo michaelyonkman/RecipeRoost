@@ -226,6 +226,11 @@ input {
   text-overflow: ellipsis;
 }
 
+input,
+textarea {
+  border-radius: 0;
+}
+
 .addRecipeButtonContainer button:hover,
 .addRecipeButtonContainer a:hover {
   color: #ff670f;
