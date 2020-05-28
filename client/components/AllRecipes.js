@@ -109,9 +109,9 @@ export class AllRecipes extends React.Component {
                       <Card.Title style={{marginTop: '1rem'}}>
                         {recipe.name}
                       </Card.Title>
+                      <p>{recipe.category}</p>
+                      <p>{recipe.rating}</p>
                     </Link>
-                    <p>{recipe.category}</p>
-                    <p>{recipe.rating}</p>
                   </Card>
                 </div>
               )
