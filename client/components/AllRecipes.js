@@ -99,7 +99,7 @@ export class AllRecipes extends React.Component {
                       marginBottom: '1rem',
                       fontFamily: 'Rock Salt, cursive',
                       backgroundColor: '#cfc7d2',
-                      borderRadius: '0px',
+                      borderRadius: '40px',
                       border: 'solid #ff670f 1px',
                       boxShadow: '5px 10px 18px #ff670f'
                     }}
