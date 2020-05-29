@@ -272,6 +272,30 @@ option {
   text-align: left;
   /* reset to left*/
 }
+
+#printRecipe {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Rock Salt', cursive;
+  padding: 40px;
+  align-items: center;
+}
+
+@media print {
+  #printRecipe {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
 /* select:hover {
   box-shadow: 0 0 10px 100px #ff670f inset;
 } */
