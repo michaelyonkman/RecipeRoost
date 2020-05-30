@@ -49,19 +49,37 @@ class RecipeDetails extends React.Component {
           >
             Print Recipe
           </Button>
+          <Button
+            onClick={() => this.emailRecipe()}
+            style={{
+              backgroundColor: '#3c4f76',
+              width: '50%',
+              marginTop: '1rem',
+              marginBottom: '1rem',
+              fontFamily: 'Rock Salt, cursive',
+              borderStyle: 'none'
+            }}
+          >
+            Email Recipe
+          </Button>
         </div>
       </div>
     )
   }
-  printRecipe() {
-    let recipeToPrint = document.getElementById('printRecipe').innerHTML
-    let a = window.open('', '', 'height=500, width=500')
-    a.document.write('<html>')
-    a.document.write('<body >')
-    a.document.write(recipeToPrint)
-    a.document.write('</body></html>')
-    a.document.close()
-    a.print()
+  emailRecipe() {
+    let link =
+      'mailto:?' +
+      '&subject=Check Out This Recipe From Recipe Roost!' +
+      '&body=' +
+      encodeURI(this.props.recipeDetails.name) +
+      '%0D%0A %0D%0A' +
+      'Ingredients: %0D%0A %0D%0A' +
+      encodeURI(this.props.recipeDetails.ingredients) +
+      '%0D%0A %0D%0A' +
+      'Instructions: %0D%0A %0D%0A' +
+      encodeURI(this.props.recipeDetails.instructions)
+
+    window.location.href = link
   }
 }
 
