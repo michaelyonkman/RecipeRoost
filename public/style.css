@@ -15,6 +15,7 @@ nav a {
   margin: 1em;
   font-family: 'Rock Salt', cursive;
   color: white;
+  transition: color 0.3s ease;
 }
 
 form div {
@@ -123,6 +124,7 @@ label {
   width: 100%;
   border: none;
   border-bottom: 1px solid #111344;
+  transition: border-bottom 0.3s ease;
 }
 
 .formContainer p {
@@ -173,6 +175,7 @@ label {
   width: 70%;
   border: none;
   border-bottom: 1px solid #111344;
+  transition: border-bottom 0.3s ease;
 }
 
 .recipeFormContainer input:hover,
@@ -192,6 +195,7 @@ label {
 
 .text-center a {
   color: #111344;
+  transition: color 0.3s ease;
 }
 
 .text-center a:hover {

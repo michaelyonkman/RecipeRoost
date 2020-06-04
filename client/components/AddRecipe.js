@@ -50,7 +50,8 @@ class AddRecipe extends React.Component {
               onChange={this.handleChange}
               style={{
                 fontFamily: 'Rock Salt, cursive',
-                width: '50%'
+                width: '50%',
+                padding: '0'
               }}
             >
               <option value="default" disabled>
@@ -75,7 +76,8 @@ class AddRecipe extends React.Component {
               onChange={this.handleChange}
               style={{
                 fontFamily: 'Rock Salt, cursive',
-                width: '50%'
+                width: '50%',
+                padding: '0'
               }}
             >
               <option value="default" disabled>
