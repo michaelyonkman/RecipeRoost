@@ -101,7 +101,7 @@ export class AllRecipes extends React.Component {
                       backgroundColor: '#cfc7d2',
                       borderRadius: '40px',
                       border: 'solid #ff670f 1px',
-                      boxShadow: '5px 10px 18px #ff670f'
+                      boxShadow: '5px 10px #ff670f'
                     }}
                   >
                     {/* <Card.Img variant="top" src={recipe.imageURL} /> */}
