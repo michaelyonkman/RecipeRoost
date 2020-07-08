@@ -1,5 +1,20 @@
-body {
+#body {
   font-family: 'Rock Salt', cursive;
+  background-color: #f6f6f4;
+}
+
+input,
+textarea {
+  background-color: #f6f6f4;
+}
+
+.btn.btn-primary {
+  color: #f6f6f4;
+}
+
+select.form-control,
+select.form-control:focus {
+  background-color: #cfc7d2;
 }
 
 a {
