@@ -6,7 +6,7 @@ import history from '../history'
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
-const ADD_TO_SHOPPING_LIST = 'ADD_TO_SHOPPING_LIST'
+const EDIT_SHOPPING_LIST = 'EDIT_SHOPPING_LIST'
 
 /**
  * INITIAL STATE
@@ -18,8 +18,8 @@ const defaultUser = {}
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
-const addToShoppingList = ingredients => ({
-  type: ADD_TO_SHOPPING_LIST,
+const editShoppingList = ingredients => ({
+  type: EDIT_SHOPPING_LIST,
   ingredients
 })
 
@@ -61,11 +61,11 @@ export const logout = () => async dispatch => {
   }
 }
 
-export const addIngredientsToShoppingList = ingredients => {
+export const editShoppingListIngredients = ingredients => {
   return async dispatch => {
     try {
       const response = await axios.put('/api/users', ingredients)
-      dispatch(addToShoppingList(response.data[1][0].shoppingList))
+      dispatch(editShoppingList(response.data[1][0].shoppingList))
     } catch (err) {
       console.log(err)
     }
@@ -81,7 +81,7 @@ export default function(state = defaultUser, action) {
       return action.user
     case REMOVE_USER:
       return defaultUser
-    case ADD_TO_SHOPPING_LIST:
+    case EDIT_SHOPPING_LIST:
       return Object.assign({}, state, {
         shoppingList: action.ingredients
       })

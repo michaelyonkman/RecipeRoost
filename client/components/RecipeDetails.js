@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchRecipeDetails} from '../store/recipes'
-import {addIngredientsToShoppingList} from '../store/user'
+import {editShoppingListIngredients} from '../store/user'
 import Button from 'react-bootstrap/Button'
 
 class RecipeDetails extends React.Component {
@@ -67,8 +67,9 @@ class RecipeDetails extends React.Component {
 
           <Button
             onClick={() =>
-              this.props.addIngredientsToShoppingList({
-                ingredients: recipe.ingredients,
+              this.props.editShoppingList({
+                ingredients:
+                  this.props.shoppingList + '\r\n' + recipe.ingredients,
                 userId: this.props.userId
               })
             }
@@ -108,14 +109,15 @@ const mapState = state => {
   return {
     email: state.user.email,
     userId: state.user.id,
+    shoppingList: state.user.shoppingList,
     recipeDetails: state.recipeDetails
   }
 }
 const mapDispatch = dispatch => {
   return {
     fetchRecipeDetails: recipeId => dispatch(fetchRecipeDetails(recipeId)),
-    addIngredientsToShoppingList: ingredients =>
-      dispatch(addIngredientsToShoppingList(ingredients))
+    editShoppingList: ingredients =>
+      dispatch(editShoppingListIngredients(ingredients))
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
+import {editShoppingListIngredients} from '../store/user'
 
 class ShoppingList extends React.Component {
   constructor() {
@@ -86,6 +86,7 @@ class ShoppingList extends React.Component {
     const sortedIndices = this.state.indicesToRemove.sort((a, b) => {
       return b - a
     })
+    // eslint-disable-next-line react/no-access-state-in-setstate
     let splicedState = [...this.state.ingredients]
     for (let i = 0; i < sortedIndices.length; i++) {
       console.log('IN LOOP')
@@ -93,20 +94,28 @@ class ShoppingList extends React.Component {
       splicedState.splice(currIdx, 1)
     }
     this.setState({ingredients: splicedState, indicesToRemove: []})
+    const joinedState = splicedState.join('\r\n')
+    console.log(joinedState, this.props.ingredients)
+    this.props.editShoppingList({
+      ingredients: joinedState,
+      userId: this.props.userId
+    })
   }
 }
 
 const mapState = state => {
   return {
-    ingredients: state.user.shoppingList
+    ingredients: state.user.shoppingList,
+    userId: state.user.id
   }
 }
-// const mapDispatch = dispatch => {
-//   return {
-//     fetchRecipeDetails: recipeId => dispatch(fetchRecipeDetails(recipeId))
-//   }
-// }
+const mapDispatch = dispatch => {
+  return {
+    editShoppingList: ingredients =>
+      dispatch(editShoppingListIngredients(ingredients))
+  }
+}
 
 // export default connect(mapState, mapDispatch)(ShoppingList)
 
-export default connect(mapState)(ShoppingList)
+export default connect(mapState, mapDispatch)(ShoppingList)
