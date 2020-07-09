@@ -8,7 +8,8 @@ import {
   UserHome,
   RecipeDetails,
   AddRecipe,
-  EditRecipe
+  EditRecipe,
+  ShoppingList
 } from './components'
 import {me} from './store'
 
@@ -35,6 +36,7 @@ class Routes extends Component {
             <Route path="/addRecipe" component={AddRecipe} />
             <Route path="/recipes/edit/:recipeId" component={EditRecipe} />
             <Route path="/recipes/:recipeId" component={RecipeDetails} />
+            <Route path="/shoppingList" component={ShoppingList} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

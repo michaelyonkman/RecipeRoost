@@ -28,3 +28,17 @@ router.get('/myprofile', async (req, res, next) => {
     next(err)
   }
 })
+
+router.put('/', async (req, res, next) => {
+  try {
+    const ingredients = await User.update(
+      {
+        shoppingList: req.body.ingredients
+      },
+      {returning: true, where: {id: req.body.userId}}
+    )
+    res.send(ingredients)
+  } catch (err) {
+    next(err)
+  }
+})
