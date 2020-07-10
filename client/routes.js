@@ -9,7 +9,8 @@ import {
   RecipeDetails,
   AddRecipe,
   EditRecipe,
-  ShoppingList
+  ShoppingList,
+  Example
 } from './components'
 import {me} from './store'
 

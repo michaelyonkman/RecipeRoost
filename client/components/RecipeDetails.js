@@ -13,7 +13,7 @@ class RecipeDetails extends React.Component {
     const recipe = this.props.recipeDetails
     return (
       <div className="recipeDetails">
-        <div id="printRecipe">
+        <div id="print">
           <h3>{recipe.name}</h3>
           {/* <img src={recipe.imageURL} /> */}
           <h5>Ingredients</h5>

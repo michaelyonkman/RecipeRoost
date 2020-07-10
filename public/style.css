@@ -292,7 +292,7 @@ option {
   /* reset to left*/
 }
 
-#printRecipe {
+#print {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -302,23 +302,37 @@ option {
 }
 
 @media print {
-  #printRecipe {
-    background-color: white;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 15px;
-    font-size: 14px;
-    line-height: 18px;
+  .editButtonContainer {
+    display: none;
+  }
+  .navLinks {
+    display: none;
   }
 }
 
 .shoppingList p {
   width: 100%;
   white-space: pre-wrap;
+}
+
+.headline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  color: #111344;
+}
+
+.shoppingList form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  color: #111344;
+}
+
+.shoppingList input {
+  margin-right: 2rem;
 }
 
 /* select:hover {
