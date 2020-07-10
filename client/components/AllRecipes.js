@@ -57,40 +57,12 @@ export class AllRecipes extends React.Component {
                 backgroundColor: '#3c4f76',
                 width: '50%',
                 marginTop: '1rem',
-                marginBottom: '1rem',
-                fontFamily: 'Rock Salt, cursive',
-                borderStyle: 'none'
-              }}
-            >
-              Search
-            </Button>
-
-            <Button
-              href="/addRecipe"
-              style={{
-                backgroundColor: '#3c4f76',
-                width: '50%',
-                marginTop: '1rem',
-                marginBottom: '1rem',
-                fontFamily: 'Rock Salt, cursive',
-                borderStyle: 'none'
-              }}
-            >
-              Add Recipe
-            </Button>
-
-            <Button
-              href="/shoppingList"
-              style={{
-                backgroundColor: '#3c4f76',
-                width: '50%',
-                marginTop: '1rem',
                 marginBottom: '2rem',
                 fontFamily: 'Rock Salt, cursive',
                 borderStyle: 'none'
               }}
             >
-              Shopping List
+              Search
             </Button>
           </div>
         </div>
@@ -136,6 +108,21 @@ export class AllRecipes extends React.Component {
             </div>
           )}
         </CardDeck>
+        <div className="addRecipeButtonContainer">
+          <Button
+            href="/addRecipe"
+            style={{
+              backgroundColor: '#3c4f76',
+              width: '50%',
+              marginTop: '2rem',
+              marginBottom: '2rem',
+              fontFamily: 'Rock Salt, cursive',
+              borderStyle: 'none'
+            }}
+          >
+            Add Recipe
+          </Button>
+        </div>
       </div>
     )
   }

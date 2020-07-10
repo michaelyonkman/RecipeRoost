@@ -5,6 +5,13 @@ import {editShoppingListIngredients} from '../store/user'
 import Button from 'react-bootstrap/Button'
 
 class RecipeDetails extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      addBtnMessage: 'Add To Shopping List',
+      addBtnDisabled: false
+    }
+  }
   componentDidMount() {
     this.props.fetchRecipeDetails(this.props.match.params.recipeId)
   }
@@ -66,13 +73,23 @@ class RecipeDetails extends React.Component {
           </Button>
 
           <Button
-            onClick={() =>
-              this.props.editShoppingList({
-                ingredients:
-                  this.props.shoppingList + '\r\n' + recipe.ingredients,
-                userId: this.props.userId
+            disabled={this.state.addBtnDisabled}
+            onClick={() => {
+              this.props.shoppingList
+                ? this.props.editShoppingList({
+                    ingredients:
+                      this.props.shoppingList + '\r\n' + recipe.ingredients,
+                    userId: this.props.userId
+                  })
+                : this.props.editShoppingList({
+                    ingredients: recipe.ingredients,
+                    userId: this.props.userId
+                  })
+              this.setState({
+                addBtnMessage: 'Added To Shopping List',
+                addBtnDisabled: true
               })
-            }
+            }}
             style={{
               backgroundColor: '#3c4f76',
               width: '50%',
@@ -82,7 +99,7 @@ class RecipeDetails extends React.Component {
               borderStyle: 'none'
             }}
           >
-            Add To Shopping List
+            {this.state.addBtnMessage}
           </Button>
         </div>
       </div>

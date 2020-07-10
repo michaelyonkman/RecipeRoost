@@ -14,65 +14,74 @@ class ShoppingList extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   componentDidMount() {
-    this.setState({ingredients: this.props.ingredients.split(/\r?\n/)})
+    if (this.props.ingredients) {
+      this.setState({ingredients: this.props.ingredients.split(/\r?\n/)})
+    }
   }
-
   render() {
-    return (
-      <div className="shoppingList">
-        <div id="print">
-          <div className="headline-container">
-            <h2>Shopping List</h2>
+    if (this.props.ingredients) {
+      return (
+        <div className="shoppingList">
+          <div id="print">
+            <div className="headline-container">
+              <h2>Shopping List</h2>
+            </div>
+            <form>
+              {this.state.ingredients.map((ingredient, index) => {
+                return (
+                  <div key={index + ingredient}>
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="indicesToRemove"
+                        value={index}
+                        label={ingredient}
+                        onChange={this.handleChange}
+                      />
+                      {ingredient}
+                    </label>
+                  </div>
+                )
+              })}
+            </form>
           </div>
-          <form>
-            {this.state.ingredients.map((ingredient, index) => {
-              return (
-                <div key={index + ingredient}>
-                  <label>
-                    <input
-                      type="checkbox"
-                      name="indicesToRemove"
-                      value={index}
-                      label={ingredient}
-                      onChange={this.handleChange}
-                    />
-                    {ingredient}
-                  </label>
-                </div>
-              )
-            })}
-          </form>
+          <div className="editButtonContainer">
+            <Button
+              onClick={this.handleSubmit}
+              style={{
+                backgroundColor: '#3c4f76',
+                width: '50%',
+                marginBottom: '2rem',
+                marginTop: '1rem',
+                fontFamily: 'Rock Salt, cursive',
+                borderStyle: 'none'
+              }}
+            >
+              Update Shopping List
+            </Button>
+            <Button
+              onClick={() => window.print()}
+              style={{
+                backgroundColor: '#3c4f76',
+                width: '50%',
+                marginTop: '1rem',
+                marginBottom: '2rem',
+                fontFamily: 'Rock Salt, cursive',
+                borderStyle: 'none'
+              }}
+            >
+              Print Shopping List
+            </Button>
+          </div>
         </div>
-        <div className="editButtonContainer">
-          <Button
-            onClick={this.handleSubmit}
-            style={{
-              backgroundColor: '#3c4f76',
-              width: '50%',
-              marginBottom: '2rem',
-              marginTop: '1rem',
-              fontFamily: 'Rock Salt, cursive',
-              borderStyle: 'none'
-            }}
-          >
-            Update Shopping List
-          </Button>
-          <Button
-            onClick={() => window.print()}
-            style={{
-              backgroundColor: '#3c4f76',
-              width: '50%',
-              marginTop: '1rem',
-              marginBottom: '2rem',
-              fontFamily: 'Rock Salt, cursive',
-              borderStyle: 'none'
-            }}
-          >
-            Print Shopping List
-          </Button>
+      )
+    } else {
+      return (
+        <div className="emptyShoppingList">
+          <p>Your shopping list is empty</p>
         </div>
-      </div>
-    )
+      )
+    }
   }
   handleChange(event) {
     event.persist()
