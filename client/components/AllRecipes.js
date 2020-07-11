@@ -45,7 +45,7 @@ export class AllRecipes extends React.Component {
               onChange={this.handleChange}
               name="searchVal"
               type="text"
-              placeholder="Search by name, ingredient, or category "
+              placeholder="Search recipes by name, ingredient, or category "
               value={this.state.searchVal}
             />
           </form>
@@ -57,12 +57,12 @@ export class AllRecipes extends React.Component {
                 backgroundColor: '#3c4f76',
                 width: '50%',
                 marginTop: '1rem',
-                marginBottom: '2rem',
+                marginBottom: '4rem',
                 fontFamily: 'Rock Salt, cursive',
                 borderStyle: 'none'
               }}
             >
-              Search
+              Search Recipes
             </Button>
           </div>
         </div>
@@ -114,13 +114,13 @@ export class AllRecipes extends React.Component {
             style={{
               backgroundColor: '#3c4f76',
               width: '50%',
-              marginTop: '2rem',
-              marginBottom: '2rem',
+              marginTop: '4rem',
+              marginBottom: '4rem',
               fontFamily: 'Rock Salt, cursive',
               borderStyle: 'none'
             }}
           >
-            Add Recipe
+            Add New Recipe
           </Button>
         </div>
       </div>

@@ -308,6 +308,9 @@ option {
   .navLinks {
     display: none;
   }
+  .rating {
+    display: none;
+  }
 }
 
 .shoppingList p {

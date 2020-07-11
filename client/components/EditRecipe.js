@@ -125,7 +125,7 @@ class EditRecipe extends React.Component {
             style={{
               backgroundColor: '#3c4f76',
               width: '50%',
-              marginTop: '2rem',
+              marginTop: '1rem',
               marginBottom: '2rem',
               fontFamily: 'Rock Salt, cursive',
               borderStyle: 'none'
@@ -139,7 +139,7 @@ class EditRecipe extends React.Component {
               style={{
                 backgroundColor: '#ff670f',
                 width: '50%',
-                marginBottom: '2rem',
+                marginBottom: '4rem',
                 fontFamily: 'Rock Salt, cursive',
                 borderStyle: 'none'
               }}

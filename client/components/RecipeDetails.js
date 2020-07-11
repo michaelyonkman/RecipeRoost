@@ -27,8 +27,8 @@ class RecipeDetails extends React.Component {
           <p>{recipe.ingredients}</p>
           <h5>Instructions</h5>
           <p>{recipe.instructions}</p>
-          <h5>Rating</h5>
-          <p>{recipe.rating}</p>
+          <h5 className="rating">Rating</h5>
+          <p className="rating">{recipe.rating}</p>
         </div>
         <div className="editButtonContainer">
           <Button

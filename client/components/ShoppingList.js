@@ -12,10 +12,14 @@ class ShoppingList extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.emailList = this.emailList.bind(this)
   }
   componentDidMount() {
     if (this.props.ingredients) {
-      this.setState({ingredients: this.props.ingredients.split(/\r?\n/)})
+      const splitIngredients = this.props.ingredients
+        .split(/\r?\n/)
+        .filter(ingredient => ingredient !== '')
+      this.setState({ingredients: splitIngredients})
     }
   }
   render() {
@@ -51,8 +55,8 @@ class ShoppingList extends React.Component {
               style={{
                 backgroundColor: '#3c4f76',
                 width: '50%',
-                marginBottom: '2rem',
                 marginTop: '1rem',
+                marginBottom: '1rem',
                 fontFamily: 'Rock Salt, cursive',
                 borderStyle: 'none'
               }}
@@ -65,12 +69,25 @@ class ShoppingList extends React.Component {
                 backgroundColor: '#3c4f76',
                 width: '50%',
                 marginTop: '1rem',
-                marginBottom: '2rem',
+                marginBottom: '1rem',
                 fontFamily: 'Rock Salt, cursive',
                 borderStyle: 'none'
               }}
             >
               Print Shopping List
+            </Button>
+            <Button
+              onClick={() => this.emailList()}
+              style={{
+                backgroundColor: '#3c4f76',
+                width: '50%',
+                marginTop: '1rem',
+                marginBottom: '4rem',
+                fontFamily: 'Rock Salt, cursive',
+                borderStyle: 'none'
+              }}
+            >
+              Email Shopping List
             </Button>
           </div>
         </div>
@@ -121,6 +138,16 @@ class ShoppingList extends React.Component {
       ingredients: joinedState,
       userId: this.props.userId
     })
+  }
+  emailList() {
+    let link =
+      'mailto:?' +
+      '&subject=My Shopping List From Recipe Roost!' +
+      '&body=' +
+      'Shopping List: %0D%0A %0D%0A' +
+      encodeURI(this.props.ingredients)
+
+    window.location.href = link
   }
 }
 
