@@ -91,7 +91,8 @@ label {
 }
 
 .formContainer button:hover,
-.formContainer a:hover {
+.formContainer a:hover,
+.recipeFormContainer button:hover {
   color: #ff670f;
 }
 

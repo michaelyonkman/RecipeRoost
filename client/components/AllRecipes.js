@@ -40,7 +40,7 @@ export class AllRecipes extends React.Component {
     return (
       <div>
         <div className="recipeFormContainer">
-          <form>
+          <form className="searchForm" onSubmit={this.handleSubmit}>
             <input
               onChange={this.handleChange}
               name="searchVal"
@@ -48,11 +48,8 @@ export class AllRecipes extends React.Component {
               placeholder="Search recipes by name, ingredient, or category "
               value={this.state.searchVal}
             />
-          </form>
-          <div className="addRecipeButtonContainer">
             <Button
               type="submit"
-              onClick={this.handleSubmit}
               style={{
                 backgroundColor: '#3c4f76',
                 width: '50%',
@@ -64,7 +61,7 @@ export class AllRecipes extends React.Component {
             >
               Search Recipes
             </Button>
-          </div>
+          </form>
         </div>
         <CardDeck
           style={{
@@ -136,11 +133,13 @@ export class AllRecipes extends React.Component {
     return filteredRecipes
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault()
     const searchVal = this.state.searchVal
     this.setState({
       recipes: this.filterRecipes(searchVal),
-      isSearching: true
+      isSearching: true,
+      searchVal: ''
     })
   }
   handleChange(event) {
