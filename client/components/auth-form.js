@@ -19,11 +19,11 @@ const AuthForm = props => {
               Recipe Roost is the online home for all of your best-loved
               recipes.
             </span>{' '}
-            Once you create an account you can add recipes from any source with
+            Once you create an account, you can add recipes from any source with
             some simple copy and paste. Now that you're up and running with some
-            recipes in your box, you can access them from anywhere in the world
-            on your PC or mobile device. It's that simple. What are you waiting
-            for? <span className="highlight">Join now!</span>
+            recipes in your box, you can access them from anywhere on your PC or
+            mobile device. It's that simple. What are you waiting for?{' '}
+            <span className="highlight">Join now!</span>
           </p>
         </div>
       </div>
@@ -33,7 +33,7 @@ const AuthForm = props => {
             <input name="email" type="text" placeholder="&#xf007;" />
           </div>
           <div className="inputContainer">
-            <input name="password" type="password" placeholder="&#xf09c;" />
+            <input name="password" type="password" placeholder="&#xf023;" />
           </div>
           <Button
             type="submit"

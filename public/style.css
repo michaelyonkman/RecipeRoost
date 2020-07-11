@@ -12,9 +12,9 @@ textarea {
   color: #f6f6f4;
 }
 
-select.form-control,
-select.form-control:focus {
-  background-color: #cfc7d2;
+select.form-control {
+  background-color: #ffff;
+  box-shadow: 5px 10px rgb(60, 79, 118, 0.8);
 }
 
 a {
@@ -97,13 +97,15 @@ label {
   color: #ff670f;
 }
 
-.formContainer input:hover {
-  border-bottom: 1px solid #ff670f;
+.formContainer input:hover,
+select.form-control:hover {
+  box-shadow: 5px 10px rgb(255, 103, 15, 0.8);
 }
 
-.formContainer input:focus {
+.formContainer input:focus,
+select.form-control:focus {
   outline: none;
-  border-bottom: 1px solid #ff670f;
+  box-shadow: 5px 10px rgb(255, 103, 15, 0.8);
 }
 
 .recipeDetails {
@@ -139,9 +141,11 @@ label {
 
 .formContainer input {
   width: 100%;
-  border: none;
-  border-bottom: 1px solid #111344;
-  transition: border-bottom 0.3s ease;
+  border: 1px solid #111344;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 5px 10px rgb(60, 79, 118, 0.8);
+  border-radius: 5px;
+  background-color: #ffff;
 }
 
 .formContainer p {
@@ -154,12 +158,12 @@ label {
 }
 
 .inputContainer input {
-  height: 2.5em;
+  height: 2.7em;
 }
 
 ::placeholder {
   font-family: FontAwesome, 'Open Sans', Verdana, sans-serif;
-  font-size: 2em;
+  font-size: 1.5em;
   padding-left: 5px;
   margin-top: 2em;
   color: #cfc7d2;
@@ -190,24 +194,30 @@ label {
   padding-top: 60px;
 }
 
+.recipeFormContainer input[type='text'] {
+  height: 2.7rem;
+}
+
 .recipeFormContainer input,
 .recipeFormContainer textarea {
   margin-bottom: 2rem;
   width: 70%;
-  border: none;
-  border-bottom: 1px solid #111344;
-  transition: border-bottom 0.3s ease;
+  background-color: #ffff;
+  border: 1px solid #111344;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 5px 10px rgb(60, 79, 118, 0.8);
+  border-radius: 5px;
 }
 
 .recipeFormContainer input:hover,
 .recipeFormContainer textarea:hover {
-  border-bottom: 1px solid #ff670f;
+  box-shadow: 5px 10px rgb(255, 103, 15, 0.8);
 }
 
 .recipeFormContainer input:focus,
 .recipeFormContainer textarea:focus {
   outline: none;
-  border-bottom: 1px solid #ff670f;
+  box-shadow: 5px 10px rgb(255, 103, 15, 0.8);
 }
 
 .recipeFormContainer label {
@@ -282,8 +292,9 @@ label.custom-file-label {
   width: 70%;
   text-align: justify;
   border: solid #111344 1px;
+  border-radius: 5px;
   box-shadow: 5px 10px rgb(60, 79, 118, 0.8);
-  background-color: #cfc7d2;
+  background-color: #ffff;
   color: #111344;
   padding: 2rem 2rem 1rem 2rem;
 }
@@ -356,8 +367,7 @@ option {
 }
 
 .searchForm input {
-  height: 2.5rem;
-  margin-bottom: 0;
+  margin-bottom: 1em;
 }
 
 /* select:hover {
