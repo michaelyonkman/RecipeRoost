@@ -26,6 +26,7 @@ class EditRecipe extends React.Component {
     this.handleClose = this.handleClose.bind(this)
     this.handleShow = this.handleShow.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.goHome = this.goHome.bind(this)
   }
   async componentDidMount() {
     await this.props.fetchRecipeDetails(this.props.match.params.recipeId)
@@ -204,13 +205,16 @@ class EditRecipe extends React.Component {
   }
   handleDelete() {
     this.props.deleteRecipe(this.props.recipeDetails.id)
-    history.push('/home')
+    setTimeout(this.goHome, 1000)
   }
   handleClose() {
     this.setState({show: false})
   }
   handleShow() {
     this.setState({show: true})
+  }
+  goHome() {
+    history.push('/home')
   }
 }
 
