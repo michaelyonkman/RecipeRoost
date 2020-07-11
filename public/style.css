@@ -158,6 +158,7 @@ label {
   font-size: 2em;
   padding-left: 5px;
   margin-top: 2em;
+  color: #cfc7d2;
 }
 
 label {
@@ -179,6 +180,7 @@ label {
   margin-left: 20px;
   padding-bottom: 3rem;
   color: #111344;
+  text-decoration: solid underline #ff670f;
 }
 .recipeFormContainer {
   padding-top: 60px;
