@@ -39,7 +39,7 @@ export class AllRecipes extends React.Component {
               onChange={this.handleChange}
               name="searchVal"
               type="text"
-              placeholder="Search recipes by name, ingredient, or category "
+              placeholder="&#xf002;"
               value={this.state.searchVal}
             />
             <Button
