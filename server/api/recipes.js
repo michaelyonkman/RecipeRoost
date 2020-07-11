@@ -38,7 +38,7 @@ router.put('/', async (req, res, next) => {
         category: req.body.category,
         rating: req.body.rating
       },
-      {where: {id: req.body.recipeId}}
+      {returning: true, where: {id: req.body.recipeId}}
     )
     res.send(editedRecipe)
   } catch (err) {

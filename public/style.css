@@ -207,12 +207,17 @@ label {
 
 .text-center a {
   color: #111344;
-  transition: color 0.3s ease;
+  transition: box-shadow 0.1s ease;
 }
 
 .text-center a:hover {
-  color: #ff670f;
+  color: #111344;
+  box-shadow: 5px 10px rgb(255, 103, 15, 0.8);
   text-decoration: none;
+}
+
+.text-center p {
+  border-bottom: 1px #cfc7d2 solid;
 }
 
 .editButtonContainer {

@@ -75,15 +75,19 @@ export class AllRecipes extends React.Component {
                       marginTop: '1rem',
                       marginBottom: '1rem',
                       fontFamily: 'Rock Salt, cursive',
-                      backgroundColor: '#cfc7d2',
-                      borderRadius: '40px',
-                      border: 'solid #ff670f 1px',
-                      boxShadow: '5px 10px #ff670f'
+                      backgroundColor: '#fffff',
+                      border: 'solid rgb(60, 79, 118) 1px',
+                      boxShadow: '5px 10px rgb(60, 79, 118, 0.8)'
                     }}
                   >
                     {/* <Card.Img variant="top" src={recipe.imageURL} /> */}
                     <Link to={`recipes/${recipe.id}`}>
-                      <Card.Title style={{marginTop: '1rem'}}>
+                      <Card.Title
+                        style={{
+                          marginTop: '1rem',
+                          borderBottom: '1px solid rgb(255, 103, 15)'
+                        }}
+                      >
                         {recipe.name}
                       </Card.Title>
                       <p>{recipe.category}</p>

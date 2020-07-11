@@ -59,7 +59,7 @@ export const editRecipe = recipe => {
   return async dispatch => {
     try {
       const response = await axios.put('/api/recipes', recipe)
-      dispatch(editRecipeDetails(response.data))
+      dispatch(editRecipeDetails(response.data[1][0]))
     } catch (err) {
       console.log(err)
     }
