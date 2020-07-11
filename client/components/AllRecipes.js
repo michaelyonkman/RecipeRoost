@@ -39,35 +39,33 @@ export class AllRecipes extends React.Component {
 
     return (
       <div>
-        {recipes.length ? (
-          <div className="recipeFormContainer">
-            <form>
-              <input
-                onChange={this.handleChange}
-                name="searchVal"
-                type="text"
-                placeholder="Search recipes by name, ingredient, or category "
-                value={this.state.searchVal}
-              />
-            </form>
-            <div className="addRecipeButtonContainer">
-              <Button
-                type="submit"
-                onClick={this.handleSubmit}
-                style={{
-                  backgroundColor: '#3c4f76',
-                  width: '50%',
-                  marginTop: '1rem',
-                  marginBottom: '4rem',
-                  fontFamily: 'Rock Salt, cursive',
-                  borderStyle: 'none'
-                }}
-              >
-                Search Recipes
-              </Button>
-            </div>
+        <div className="recipeFormContainer">
+          <form>
+            <input
+              onChange={this.handleChange}
+              name="searchVal"
+              type="text"
+              placeholder="Search recipes by name, ingredient, or category "
+              value={this.state.searchVal}
+            />
+          </form>
+          <div className="addRecipeButtonContainer">
+            <Button
+              type="submit"
+              onClick={this.handleSubmit}
+              style={{
+                backgroundColor: '#3c4f76',
+                width: '50%',
+                marginTop: '1rem',
+                marginBottom: '4rem',
+                fontFamily: 'Rock Salt, cursive',
+                borderStyle: 'none'
+              }}
+            >
+              Search Recipes
+            </Button>
           </div>
-        ) : null}
+        </div>
         <CardDeck
           style={{
             justifyContent: 'space-evenly'
