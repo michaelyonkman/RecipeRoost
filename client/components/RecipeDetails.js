@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {fetchRecipeDetails} from '../store/recipes'
 import {editShoppingListIngredients} from '../store/user'
 import Button from 'react-bootstrap/Button'
+import history from '../history'
 
 class RecipeDetails extends React.Component {
   constructor() {
@@ -32,7 +33,7 @@ class RecipeDetails extends React.Component {
         </div>
         <div className="editButtonContainer">
           <Button
-            href={`/recipes/edit/${recipe.id}`}
+            onClick={() => history.push(`/recipes/edit/${recipe.id}`)}
             style={{
               backgroundColor: '#3c4f76',
               width: '50%',
@@ -105,6 +106,7 @@ class RecipeDetails extends React.Component {
       </div>
     )
   }
+
   emailRecipe() {
     let link =
       'mailto:?' +

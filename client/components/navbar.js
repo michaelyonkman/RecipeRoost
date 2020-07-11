@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import {GiFeather} from 'react-icons/gi'
-import {home} from './AllRecipes'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div className="navContainer">
@@ -19,10 +18,8 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       {isLoggedIn ? (
         <div className="navLinks">
           {/* The navbar will show these links after you log in */}
-          <Link to="/home" onClick={() => home()}>
-            Home
-          </Link>
-          <a href="/shoppingList">Shopping List</a>
+          <Link to="/home">Home</Link>
+          <Link to="/shoppingList">Shopping List</Link>
           <a href="#" onClick={handleClick}>
             Logout
           </a>

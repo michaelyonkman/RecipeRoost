@@ -5,12 +5,7 @@ import {getRecipes} from '../store/userRecipes'
 import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Button from 'react-bootstrap/Button'
-
-export function home() {
-  if (this) {
-    this.setState({isSearching: false, searchVal: ''})
-  }
-}
+import history from '../history'
 
 export class AllRecipes extends React.Component {
   constructor() {
@@ -23,10 +18,9 @@ export class AllRecipes extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
     // eslint-disable-next-line no-func-assign
-    home = home.bind(this)
   }
-  componentDidMount() {
-    this.props.getRecipes()
+  async componentDidMount() {
+    await this.props.getRecipes()
   }
 
   render() {
@@ -107,7 +101,7 @@ export class AllRecipes extends React.Component {
         </CardDeck>
         <div className="addRecipeButtonContainer">
           <Button
-            href="/addRecipe"
+            onClick={() => history.push('/addRecipe')}
             style={{
               backgroundColor: '#3c4f76',
               width: '50%',
