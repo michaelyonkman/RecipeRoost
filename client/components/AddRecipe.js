@@ -4,6 +4,7 @@ import {addRecipe} from '../store/recipes'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import history from '../history'
+import RecipeForm from './RecipeForm'
 
 class AddRecipe extends React.Component {
   constructor() {
@@ -21,6 +22,7 @@ class AddRecipe extends React.Component {
   render() {
     return (
       <div className="recipeFormContainer">
+        <RecipeForm addRecipe={this.props.addRecipe} />
         <form
           onSubmit={this.handleSubmit}
           name={name}

@@ -13,8 +13,11 @@ textarea {
 }
 
 select.form-control {
+  width: 50%;
+  padding: 0;
   background-color: #ffff;
   box-shadow: 5px 10px rgb(60, 79, 118, 0.8);
+  margin: 1rem;
 }
 
 a {
@@ -34,10 +37,10 @@ nav a {
   text-decoration: underline solid white;
 }
 
-form div {
+/* form div {
   margin: 1em;
   display: inline-block;
-}
+} */
 
 .logo {
   font-family: 'Rock Salt', cursive;
@@ -159,6 +162,7 @@ select.form-control:focus {
 }
 
 .inputContainer {
+  margin-bottom: 2rem;
   width: 70%;
 }
 
@@ -205,7 +209,7 @@ label {
 
 .recipeFormContainer input,
 .recipeFormContainer textarea {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   width: 70%;
   background-color: #ffff;
   border: 1px solid #111344;
@@ -383,6 +387,18 @@ p.rating {
 
 .ratingContainer {
   display: flex;
+  align-items: center;
+}
+
+.error {
+  color: #ff670f;
+  height: 2rem;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 

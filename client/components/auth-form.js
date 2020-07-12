@@ -40,7 +40,7 @@ const AuthForm = props => {
             style={{
               backgroundColor: '#3c4f76',
               width: '50%',
-              marginTop: '50px',
+              marginTop: '1rem',
               fontFamily: 'Rock Salt, cursive',
               borderStyle: 'none'
             }}
