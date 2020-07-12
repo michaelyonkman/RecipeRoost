@@ -4,6 +4,7 @@ import {addRecipe} from '../store/recipes'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import history from '../history'
+import {GiFeather} from 'react-icons/gi'
 
 class AddRecipe extends React.Component {
   constructor() {
@@ -83,11 +84,11 @@ class AddRecipe extends React.Component {
               <option value="default" disabled>
                 Rating
               </option>
-              <option value="1 fork">1 Fork</option>
-              <option value="2 forks">2 Forks</option>
-              <option value="3 forks">3 Forks</option>
-              <option value="4 forks">4 Forks</option>
-              <option value="5 forks">5 Forks</option>
+              <option value="1">1 Feather</option>
+              <option value="2">2 Feathers</option>
+              <option value="3">3 Feathers</option>
+              <option value="4">4 Feathers</option>
+              <option value="5">5 Feathers</option>
             </Form.Control>
           </Form.Group>
           {/* <Form.File

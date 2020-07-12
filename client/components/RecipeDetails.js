@@ -4,6 +4,7 @@ import {fetchRecipeDetails} from '../store/recipes'
 import {editShoppingListIngredients} from '../store/user'
 import Button from 'react-bootstrap/Button'
 import history from '../history'
+import {GiFeather} from 'react-icons/gi'
 
 class RecipeDetails extends React.Component {
   constructor() {
@@ -12,6 +13,7 @@ class RecipeDetails extends React.Component {
       addBtnMessage: 'Add To Shopping List',
       addBtnDisabled: false
     }
+    this.rating = this.rating.bind(this)
   }
   componentDidMount() {
     this.props.fetchRecipeDetails(this.props.match.params.recipeId)
@@ -29,7 +31,9 @@ class RecipeDetails extends React.Component {
           <h5>Instructions</h5>
           <p>{recipe.instructions}</p>
           <h5 className="rating">Rating</h5>
-          <p className="rating">{recipe.rating}</p>
+          <div className="ratingContainer">
+            <p className="rating">{this.rating(recipe.rating)}</p>
+          </div>
         </div>
         <div className="editButtonContainer">
           <Button
@@ -121,6 +125,15 @@ class RecipeDetails extends React.Component {
       encodeURI(this.props.recipeDetails.instructions)
 
     window.location.href = link
+  }
+  rating(n) {
+    let ratingArr = []
+    for (let i = 0; i < n; i++) {
+      ratingArr.push(
+        <GiFeather key={i} style={{color: '#ff6700', fontSize: '3rem'}} />
+      )
+    }
+    return ratingArr
   }
 }
 

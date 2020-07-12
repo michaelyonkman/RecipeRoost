@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
 import Button from 'react-bootstrap/Button'
 import history from '../history'
+import {GiFeather} from 'react-icons/gi'
 
 export class AllRecipes extends React.Component {
   constructor() {
@@ -17,6 +18,7 @@ export class AllRecipes extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.rating = this.rating.bind(this)
     // eslint-disable-next-line no-func-assign
   }
   async componentDidMount() {
@@ -91,7 +93,7 @@ export class AllRecipes extends React.Component {
                         {recipe.name}
                       </Card.Title>
                       <p>{recipe.category}</p>
-                      <p>{recipe.rating}</p>
+                      <p className="rating">{this.rating(recipe.rating)}</p>
                     </Link>
                   </Card>
                 </div>
@@ -144,6 +146,15 @@ export class AllRecipes extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     })
+  }
+  rating(n) {
+    let ratingArr = []
+    for (let i = 0; i < n; i++) {
+      ratingArr.push(
+        <GiFeather key={i} style={{color: '#ff6700', fontSize: '1.7rem'}} />
+      )
+    }
+    return ratingArr
   }
 }
 

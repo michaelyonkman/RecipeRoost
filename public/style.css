@@ -114,6 +114,7 @@ select.form-control:focus {
   font-family: 'Rock Salt', cursive;
   padding: 40px;
   align-items: center;
+  color: #111344;
 }
 
 .recipeDetails p {
@@ -124,10 +125,14 @@ select.form-control:focus {
 .recipeDetails h5 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+  text-decoration: solid underline #ff670f;
+  color: #111344;
 }
 
 .recipeDetails h3 {
   margin-bottom: 2rem;
+  text-decoration: solid underline #ff670f;
+  color: #111344;
 }
 
 .recipeDetails img {
@@ -191,7 +196,7 @@ label {
   text-decoration: solid underline #ff670f;
 }
 .recipeFormContainer {
-  padding-top: 60px;
+  padding-top: 1rem;
 }
 
 .recipeFormContainer input[type='text'] {
@@ -368,6 +373,15 @@ option {
 
 .searchForm input {
   margin-bottom: 1em;
+}
+
+p.rating {
+  font-family: FontAwesome, 'Open Sans', Verdana, sans-serif;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
 }
 
 /* select:hover {
