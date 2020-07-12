@@ -4,7 +4,6 @@ import {addRecipe} from '../store/recipes'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import history from '../history'
-import {GiFeather} from 'react-icons/gi'
 
 class AddRecipe extends React.Component {
   constructor() {

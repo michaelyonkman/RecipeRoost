@@ -151,7 +151,7 @@ export class AllRecipes extends React.Component {
     let ratingArr = []
     for (let i = 0; i < n; i++) {
       ratingArr.push(
-        <GiFeather key={i} style={{color: '#ff6700', fontSize: '1.7rem'}} />
+        <GiFeather key={i} style={{color: '#ff6700', fontSize: '1.5rem'}} />
       )
     }
     return ratingArr

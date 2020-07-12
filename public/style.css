@@ -231,7 +231,7 @@ label {
 
 .text-center a {
   color: #111344;
-  transition: box-shadow 0.1s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .text-center a:hover {
@@ -349,7 +349,9 @@ option {
   flex-direction: column;
   align-items: center;
   margin-top: 2rem;
+  margin-bottom: 1rem;
   color: #111344;
+  text-decoration: solid underline #ff670f;
 }
 
 .shoppingList form {
