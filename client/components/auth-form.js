@@ -49,7 +49,7 @@ const AuthForm = props => {
           </Button>
           {/* <p>OR</p> */}
           {error && error.response && (
-            <div className="error"> {error.response.data} </div>
+            <div className="user-error"> {error.response.data} </div>
           )}
           {/* <Button
             href="/auth/google"
