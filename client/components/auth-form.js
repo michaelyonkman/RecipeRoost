@@ -1,15 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
 import Button from 'react-bootstrap/Button'
 
+let outsideError
 /**
  * COMPONENT
  */
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
-
+  const [errorMessage, setErrorMessage] = useState('')
+  outsideError = setErrorMessage
   return (
     <div>
       <div className="intro">
@@ -51,6 +53,7 @@ const AuthForm = props => {
           {error && error.response && (
             <div className="user-error"> {error.response.data} </div>
           )}
+          <div className="user-error">{errorMessage}</div>
           {/* <Button
             href="/auth/google"
             style={{
@@ -99,7 +102,12 @@ const mapDispatch = dispatch => {
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
-      dispatch(auth(email, password, formName))
+      console.log('HANDLE SUBMIT', email, password)
+      if (email && password) {
+        dispatch(auth(email, password, formName))
+      } else {
+        outsideError('Both username and password are required')
+      }
     }
   }
 }
