@@ -6,6 +6,7 @@
 input,
 textarea {
   background-color: #f6f6f4;
+  padding-left: 0.5rem;
 }
 
 .btn.btn-primary {
