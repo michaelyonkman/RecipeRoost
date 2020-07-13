@@ -401,6 +401,11 @@ p.rating {
   margin-top: 1rem;
 }
 
+label {
+  color: #111344;
+  text-decoration: underline solid #ff670f;
+}
+
 .input-container {
   width: 100%;
   display: flex;

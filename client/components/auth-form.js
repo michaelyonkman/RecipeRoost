@@ -102,7 +102,6 @@ const mapDispatch = dispatch => {
       const formName = evt.target.name
       const email = evt.target.email.value
       const password = evt.target.password.value
-      console.log('HANDLE SUBMIT', email, password)
       if (email && password) {
         dispatch(auth(email, password, formName))
       } else {
