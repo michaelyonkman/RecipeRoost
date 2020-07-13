@@ -401,7 +401,8 @@ p.rating {
   margin-top: 1rem;
 }
 
-label {
+.input-container label,
+.recipeFormContainer label {
   color: #111344;
   text-decoration: underline solid #ff670f;
 }
