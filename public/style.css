@@ -192,15 +192,18 @@ label {
 }
 
 .welcome {
-  display: flex;
-  flex-direction: row;
+  display: block;
   font-family: 'Rock Salt', cursive;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  padding-top: 1rem;
   padding-bottom: 3rem;
   color: #111344;
   text-decoration: solid underline #ff670f;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
+
 .recipeFormContainer {
   padding-top: 1rem;
 }
@@ -419,6 +422,9 @@ p.rating {
 }
 
 .emptyMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: #ff670f;
   text-decoration: underline solid #111344;
   font-size: 1.3rem;

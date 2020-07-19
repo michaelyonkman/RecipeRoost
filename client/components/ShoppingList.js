@@ -33,7 +33,7 @@ class ShoppingList extends React.Component {
             <form>
               {this.state.ingredients.map((ingredient, index) => {
                 return (
-                  <div key={index + ingredient}>
+                  <div className="list-item" key={index + ingredient}>
                     <label>
                       <input
                         type="checkbox"
