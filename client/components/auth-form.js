@@ -13,7 +13,7 @@ const AuthForm = props => {
   const [errorMessage, setErrorMessage] = useState('')
   outsideError = setErrorMessage
   return (
-    <div>
+    <div className="auth-page-container">
       <div className="intro">
         <div className="introText">
           <p>

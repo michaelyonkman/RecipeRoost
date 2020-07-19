@@ -430,6 +430,22 @@ p.rating {
   font-size: 1.3rem;
 }
 
-/* select:hover {
-  box-shadow: 0 0 10px 100px #ff670f inset;
-} */
+@media screen and (min-width: 900px) {
+  .auth-page-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+  }
+
+  .intro {
+    width: 50%;
+    border-right: solid 1px #ff670f;
+  }
+
+  .formContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
