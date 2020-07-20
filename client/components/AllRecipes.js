@@ -34,7 +34,7 @@ export class AllRecipes extends React.Component {
     }
 
     return (
-      <div>
+      <div className="all-recipes-container">
         <div className="recipeFormContainer">
           <form className="searchForm" onSubmit={this.handleSubmit}>
             <input
@@ -50,75 +50,76 @@ export class AllRecipes extends React.Component {
                 backgroundColor: '#3c4f76',
                 width: '50%',
                 marginTop: '1rem',
-                marginBottom: '4rem',
+                marginBottom: '1rem',
                 fontFamily: 'Rock Salt, cursive',
                 borderStyle: 'none'
               }}
             >
               Search Recipes
             </Button>
+            <Button
+              onClick={() => history.push('/addRecipe')}
+              style={{
+                backgroundColor: '#3c4f76',
+                width: '50%',
+                marginTop: '1rem',
+                marginBottom: '2rem',
+                fontFamily: 'Rock Salt, cursive',
+                borderStyle: 'none'
+              }}
+            >
+              Add New Recipe
+            </Button>
+            <div className="addRecipeButtonContainer"></div>
           </form>
         </div>
-        <CardDeck
-          style={{
-            justifyContent: 'space-evenly'
-          }}
-        >
-          {recipes.length ? (
-            recipes.map(recipe => {
-              return (
-                <div key={recipe.id}>
-                  <Card
-                    className="text-center"
-                    style={{
-                      width: '18rem',
-                      flex: 1,
-                      margin: 'auto',
-                      marginTop: '1rem',
-                      marginBottom: '1rem',
-                      fontFamily: 'Rock Salt, cursive',
-                      backgroundColor: '#fffff',
-                      border: 'solid rgb(60, 79, 118) 1px',
-                      boxShadow: '5px 10px rgb(60, 79, 118, 0.8)'
-                    }}
-                  >
-                    {/* <Card.Img variant="top" src={recipe.imageURL} /> */}
-                    <Link to={`recipes/${recipe.id}`}>
-                      <Card.Title
-                        style={{
-                          marginTop: '1rem',
-                          borderBottom: '1px solid rgb(255, 103, 15)'
-                        }}
-                      >
-                        {recipe.name}
-                      </Card.Title>
-                      <p>{recipe.category}</p>
-                      <p className="rating">{this.rating(recipe.rating)}</p>
-                    </Link>
-                  </Card>
-                </div>
-              )
-            })
-          ) : (
-            <div className="emptyMessage">
-              <p>No recipes found</p>
-            </div>
-          )}
-        </CardDeck>
-        <div className="addRecipeButtonContainer">
-          <Button
-            onClick={() => history.push('/addRecipe')}
+        <div className="recipe-card-container">
+          <CardDeck
             style={{
-              backgroundColor: '#3c4f76',
-              width: '50%',
-              marginTop: '4rem',
-              marginBottom: '4rem',
-              fontFamily: 'Rock Salt, cursive',
-              borderStyle: 'none'
+              justifyContent: 'space-evenly'
             }}
           >
-            Add New Recipe
-          </Button>
+            {recipes.length ? (
+              recipes.map(recipe => {
+                return (
+                  <div key={recipe.id}>
+                    <Card
+                      className="text-center"
+                      style={{
+                        width: '18rem',
+                        flex: 1,
+                        margin: 'auto',
+                        marginTop: '1rem',
+                        marginBottom: '1rem',
+                        fontFamily: 'Rock Salt, cursive',
+                        backgroundColor: '#fffff',
+                        border: 'solid rgb(60, 79, 118) 1px',
+                        boxShadow: '5px 10px rgb(60, 79, 118, 0.8)'
+                      }}
+                    >
+                      {/* <Card.Img variant="top" src={recipe.imageURL} /> */}
+                      <Link to={`recipes/${recipe.id}`}>
+                        <Card.Title
+                          style={{
+                            marginTop: '1rem',
+                            borderBottom: '1px solid rgb(255, 103, 15)'
+                          }}
+                        >
+                          {recipe.name}
+                        </Card.Title>
+                        <p>{recipe.category}</p>
+                        <p className="rating">{this.rating(recipe.rating)}</p>
+                      </Link>
+                    </Card>
+                  </div>
+                )
+              })
+            ) : (
+              <div className="emptyMessage">
+                <p>No recipes found</p>
+              </div>
+            )}
+          </CardDeck>
         </div>
       </div>
     )
