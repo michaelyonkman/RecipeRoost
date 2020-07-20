@@ -430,6 +430,13 @@ p.rating {
   font-size: 1.3rem;
 }
 
+.hr {
+  width: 90%;
+  border-top: 1px solid #ff670f;
+  margin-bottom: 4rem;
+  margin-top: 0;
+}
+
 @media screen and (min-width: 900px) {
   .auth-page-container {
     display: flex;
@@ -440,6 +447,7 @@ p.rating {
   .intro {
     width: 50%;
     border-right: solid 1px #ff670f;
+    padding-bottom: 0.5rem;
   }
 
   .formContainer {
