@@ -6,11 +6,11 @@ A single-page web application to host all of your favorite recipes in one place.
 
 To use Recipe Roost from GitHub fork and clone the repository. In order to run Recipe Roost you will need to have PostgreSQL installed.
 
-- Create two postgres databases
-createdb $recipe_roost
-createdb $recipe_roost-test
+Create two postgres databases
+`createdb $recipe_roost`
+`createdb $recipe_roost-test`
 
-Now that you've got the code and you've created your databases run npm install. You can also npm run seed to populate the database with some dummy users and recipes.
+Now that you've got the code and you've created your databases run `npm install`. You can also run `npm run seed` to populate the database with some dummy users and recipes.
 
 Running `npm run start-dev` will make great things happen!
 
